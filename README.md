@@ -5,4 +5,4 @@ Airbnb does not own any of the listed properties; instead, it profits by receivi
 About Dataset
 Since 2008, guests and hosts have used Airbnb to travel in a more unique, personalized way. As part of the Airbnb Inside initiative, this dataset describes the listing activity of homestays in New York City
 
-Dataset was cleaned with MySQL and visualized with PowerBi. The purpose of this is to train and test my data cleaning and visualization skills.
+Dataset was cleaned with MySQL and visualized with PowerBi. The purpose of this is to train and test my data cleaning and visualization skills. 
