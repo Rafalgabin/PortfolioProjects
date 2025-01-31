@@ -1,0 +1,728 @@
+select 
+	*
+from supermarket_sales_data.annex1
+limit 20;
+
+rename table supermarket_sales_data.annex1 to supermarket_sales_data.veg_name_category;
+
+select 
+	*
+from supermarket_sales_data.annex2
+limit 20;
+
+rename table supermarket_sales_data.annex2 to supermarket_sales_data.veg_sale;
+
+select 
+	*
+from supermarket_sales_data.annex3
+limit 20;
+
+rename table supermarket_sales_data.annex3 to supermarket_sales_data.veg_whsale_price;
+
+select 
+	*
+from supermarket_sales_data.annex4
+limit 20;
+
+rename table supermarket_sales_data.annex4 to supermarket_sales_data.veg_loss_rate;
+
+alter table supermarket_sales_data.veg_name_category 
+rename column Item_Code to item_code;
+
+alter table supermarket_sales_data.veg_name_category 
+rename column Item_Name to item_name;
+
+alter table supermarket_sales_data.veg_name_category 
+rename column Category_Code to category_code;
+
+alter table supermarket_sales_data.veg_name_category 
+rename column Category_Name to category_name;
+
+select 
+	*
+from supermarket_sales_data.veg_sale
+limit 20;
+
+alter table supermarket_sales_data.veg_sale 
+rename column Date to date_sale;
+
+alter table supermarket_sales_data.veg_sale 
+rename column Time to time_sale;
+
+alter table supermarket_sales_data.veg_sale 
+rename column `Quantity_Sold_(kilo)` to quantity_sold_kg;
+
+alter table supermarket_sales_data.veg_sale 
+rename column `Unit_Selling_Price_(RMB/kg)` to unit_selling_price_rmb_kg;
+
+alter table supermarket_sales_data.veg_sale 
+rename column `Discount_(Yes/No)` to discounted;
+
+select 
+	*
+from supermarket_sales_data.veg_whsale_price
+limit 20;
+
+select 
+	*
+from supermarket_sales_data.veg_whsale_price
+limit 100;
+
+alter table supermarket_sales_data.veg_whsale_price 
+rename column Date to date_whsale;
+
+alter table supermarket_sales_data.veg_whsale_price 
+rename column `Wholesale_Price_(RMB/kg)` to whsale_price_rmb_kg;
+
+select 
+	*
+from supermarket_sales_data.veg_loss_rate
+limit 20;
+
+alter table supermarket_sales_data.veg_loss_rate 
+rename column `Loss_Rate_(%)` to loss_rate_prct;
+
+select 
+	count(*) 
+from supermarket_sales_data.veg_name_category;
+
+select 
+	sum(item_code is null) 				  as item_code_nulls
+	,sum(item_name is null) 			  as item_name_nulls
+	,sum(category_code is null) 		as category_code_nulls
+	,sum(category_name is null) 		as category_name_nulls
+from supermarket_sales_data.veg_name_category;
+
+select 
+	count(distinct item_code) 			as unique_item_code
+from supermarket_sales_data.veg_name_category;
+
+select 
+	distinct item_name
+from supermarket_sales_data.veg_name_category
+order by item_name;
+
+select
+	*
+  ,row_number() over(partition by item_name) as row_num
+from supermarket_sales_data.veg_name_category;
+
+/* Looks like some itmes have same or similar name but have different item_code for example Apricot Bao Mushroom (Bag) appears twice, 
+ * Apricot Bao Mushroom (1), Apricot Bao Mushroom (2) those items have different item_code, I presume they are same item but I will leave it for now and keep it in mind for later.
+ * I will remove one position as Broccoli is in Cabbage and Flower/Leaf Vegetables category and Broccoli is not a Cabbage so I will change this item across all tables. */
+
+select 
+	count(*)
+from supermarket_sales_data.veg_sale;
+	
+select 
+	count(*)
+from supermarket_sales_data.veg_sale
+where item_code = '102900011012994';
+
+select 
+	count(*)
+from supermarket_sales_data.veg_sale
+where item_code = '102900011031599';
+
+select 
+	count(*)
+from supermarket_sales_data.veg_sale
+where item_code = '102900005116714';
+
+select 
+	count(*)
+from supermarket_sales_data.veg_sale
+where item_code = '102900051000890';
+
+select 
+	*
+from supermarket_sales_data.veg_whsale_price
+where item_code = '102900011012994';
+
+select 
+	max(unit_selling_price_rmb_kg) as max
+	,min(unit_selling_price_rmb_kg) as min
+from supermarket_sales_data.veg_sale
+where item_code = '102900005116714'; 
+
+select 
+	max(unit_selling_price_rmb_kg) as max
+	,min(unit_selling_price_rmb_kg) as min
+from supermarket_sales_data.veg_sale
+where item_code = '102900051000890';
+
+select 
+	*
+from supermarket_sales_data.veg_name_category
+where item_code = '102900005116714';
+
+delete from supermarket_sales_data.veg_name_category
+where item_code = '102900005116714';
+
+select 
+	count(*)
+from supermarket_sales_data.veg_name_category;
+
+select 
+	count(*)
+from supermarket_sales_data.veg_sale
+where item_code = '102900005116714';
+
+update supermarket_sales_data.veg_sale
+set item_code = '102900051000890'
+where item_code = '102900005116714';
+
+select 
+	count(*)
+from supermarket_sales_data.veg_sale
+where item_code = '102900005116714';
+
+select 
+	count(*)
+from supermarket_sales_data.veg_whsale_price
+where item_code = '102900005116714';
+
+update supermarket_sales_data.veg_whsale_price 
+set item_code = '102900051000890'
+where item_code = '102900005116714';
+
+select 
+	count(*)
+from supermarket_sales_data.veg_whsale_price
+where item_code = '102900005116714';
+
+select 
+	count(*)
+from supermarket_sales_data.veg_loss_rate
+where item_code = '102900005116714';
+
+select 
+	*
+from supermarket_sales_data.veg_loss_rate
+where item_code = '102900005116714';
+
+update supermarket_sales_data.veg_loss_rate 
+set item_code = '102900051000890'
+where item_code = '102900005116714';
+
+select 
+	*
+from supermarket_sales_data.veg_loss_rate
+where item_code = '102900005116714';
+
+select 
+	distinct Category_Code
+from supermarket_sales_data.veg_name_category;
+
+select 
+	distinct Category_Name
+from supermarket_sales_data.veg_name_category;
+
+select 
+	sum(date_sale is null) 					as date_sale_nulls
+	,sum(time_sale is null) 				as time_sale_nulls
+	,sum(item_code is null) 				as item_code_nulls
+	,sum(quantity_sold_kg is null) 			as quantity_sold_kg_nulls
+	,sum(unit_selling_price_rmb_kg is null)	as unit_selling_price_rmb_kg_nulls
+	,sum(sale_or_return is null)			as sale_or_return_nulls
+	,sum(discounted is null)				as discounted_nulls
+from supermarket_sales_data.veg_sale;
+
+select 
+	max(date_sale) 
+	,min(date_sale)
+from supermarket_sales_data.veg_sale;
+
+select 
+	max(time_sale) 
+	,min(time_sale)
+from supermarket_sales_data.veg_sale;
+
+select 
+	max(quantity_sold_kg) 
+	,min(quantity_sold_kg)
+	,avg(quantity_sold_kg) 
+from supermarket_sales_data.veg_sale;
+
+select 
+  avg(quantity_sold_kg) as median
+from (
+  select 
+  quantity_sold_kg
+  from (
+    select 
+      quantity_sold_kg, row_number() over (order by quantity_sold_kg) as row_num 
+      ,count(*) over () as total_rows
+    from supermarket_sales_data.veg_sale
+  ) as ordered_data
+  where row_num = floor((total_rows + 1) / 2) or row_num = floor((total_rows) / 2) + 1
+) as middle_values;
+
+select 
+	quantity_sold_kg
+from supermarket_sales_data.veg_sale
+order by quantity_sold_kg
+limit 20;
+
+select 
+	quantity_sold_kg
+from supermarket_sales_data.veg_sale
+order by quantity_sold_kg desc
+limit 20; 
+
+select 
+	*
+from supermarket_sales_data.veg_sale
+order by quantity_sold_kg desc
+limit 1; 
+
+select 
+	unit_selling_price_rmb_kg
+from supermarket_sales_data.veg_sale
+limit 20;
+
+select 
+	max(unit_selling_price_rmb_kg) 
+	,min(unit_selling_price_rmb_kg)
+	,avg(unit_selling_price_rmb_kg) 
+from supermarket_sales_data.veg_sale;
+
+select 
+	unit_selling_price_rmb_kg
+from supermarket_sales_data.veg_sale
+order by unit_selling_price_rmb_kg
+limit 20;
+
+select 
+	*
+from supermarket_sales_data.veg_sale
+order by unit_selling_price_rmb_kg desc 
+limit 20;
+
+select 
+	distinct sale_or_return
+from supermarket_sales_data.veg_sale;
+
+select 
+	sum(sale_or_return = 'sale') 		  as total_sale
+	,sum(sale_or_return = 'return')		as total_return
+from supermarket_sales_data.veg_sale;
+
+select 
+	(sum(sale_or_return = 'sale') / 878503) * 100		  as total_sale_prct
+	,(sum(sale_or_return = 'return') / 878503) * 100	as total_return_prct
+from supermarket_sales_data.veg_sale;
+
+select 
+	distinct discounted
+from supermarket_sales_data.veg_sale;
+
+select 
+	sum(discounted = 'No')		as total_sale_normal
+	,sum(discounted = 'Yes')	as total_sale_discounted
+from supermarket_sales_data.veg_sale;
+
+select 
+	(sum(discounted = 'No') / 878503) * 100		as total_sale_normal_prct
+	,(sum(discounted = 'Yes') / 878503) * 100	as total_sale_discounted_prct
+from supermarket_sales_data.veg_sale;
+
+select 
+	count(*)
+from supermarket_sales_data.veg_whsale_price;
+
+select 
+	count(distinct date_sale)
+from supermarket_sales_data.veg_sale;
+
+select 
+	*
+from supermarket_sales_data.veg_whsale_price
+limit 20;
+
+select
+	max(date_whsale)
+	,min(date_whsale)
+from supermarket_sales_data.veg_whsale_price;
+
+select 
+	max(date_sale) 
+	,min(date_sale)
+from supermarket_sales_data.veg_sale;
+
+select 
+	count(distinct item_code)
+from supermarket_sales_data.veg_whsale_price;
+
+select 
+  (case
+    when (select count(distinct item_code) from veg_name_category) = (select count(distinct item_code) from veg_whsale_price)
+    and not exists (
+      select 1
+      from (select distinct item_code from veg_name_category) vnc
+      where not exists (
+        select 1
+        from (select distinct item_code from veg_whsale_price) vwp
+        where vnc.item_code = vwp.item_code
+        )
+      )
+    then 'item_codes are the same in both tables.'
+  else 'item_codes are not the same in both tables.'
+end) as compare_result;
+
+select count(*) as total_distinct_item_codes
+from (
+  select item_code from veg_name_category
+  union
+  select item_code from veg_whsale_price
+) as combine;
+
+select 
+	max(whsale_price_rmb_kg)
+	,min(whsale_price_rmb_kg)
+from supermarket_sales_data.veg_whsale_price; 
+
+select 
+	*
+from supermarket_sales_data.veg_whsale_price
+order by whsale_price_rmb_kg
+limit 20;
+
+select 
+	*
+from supermarket_sales_data.veg_whsale_price
+order by whsale_price_rmb_kg desc
+limit 20;
+
+select 
+	sum(item_code is null)			  as item_code_nulls
+	,sum(item_name is null)			  as item_name_nulls
+	,sum(loss_rate_prct is null)	as loss_rate_prct_nulls
+from supermarket_sales_data.veg_loss_rate;
+
+select 
+	count(distinct item_code)
+from supermarket_sales_data.veg_loss_rate
+
+select count(*) as total_distinct_item_codes
+from (
+  select item_code from veg_name_category
+  union
+  select item_code from veg_loss_rate
+) as combine;
+
+select 
+	count(distinct item_name)
+from supermarket_sales_data.veg_loss_rate
+
+select 
+	count(distinct item_name)
+from supermarket_sales_data.veg_name_category;
+
+select count(*) as total_distinct_item_names
+from (
+  select item_name from veg_name_category
+  union
+  select item_name from veg_loss_rate
+) as combine;
+
+select 
+	loss_rate_prct 
+from supermarket_sales_data.veg_loss_rate
+limit 20;
+
+select 
+	count(loss_rate_prct)
+from supermarket_sales_data.veg_loss_rate;
+
+select 
+	*
+from supermarket_sales_data.veg_loss_rate
+where item_code = '102900051000890';
+
+select
+	round(sum(loss_rate_prct) / 2, 2)
+from supermarket_sales_data.veg_loss_rate
+where item_code = '102900051000890';
+
+delete from supermarket_sales_data.veg_loss_rate
+where loss_rate_prct = '9.43' and item_code = '102900051000890';
+
+select 
+	*
+from supermarket_sales_data.veg_loss_rate
+where item_code = '102900051000890';
+
+update supermarket_sales_data.veg_loss_rate
+set loss_rate_prct = '9.34'
+where item_code = '102900051000890';
+
+select 
+	max(loss_rate_prct)
+	,min(loss_rate_prct)
+	,avg(loss_rate_prct)
+from supermarket_sales_data.veg_loss_rate
+
+select 
+	quantity_sold_kg 
+from supermarket_sales_data.veg_sale
+limit 50;
+
+select
+    item_code
+    ,round(sum(quantity_sold_kg * unit_selling_price_rmb_kg), 2) as total_sold
+from supermarket_sales_data.veg_sale
+group by item_code
+order by total_sold desc;
+
+select
+  vs.item_code
+  ,vnc.item_name
+  ,vnc.category_name
+  ,round(sum(vs.quantity_sold_kg * vs.unit_selling_price_rmb_kg), 2) as total_sold
+from supermarket_sales_data.veg_sale vs
+join supermarket_sales_data.veg_name_category vnc on vs.item_code = vnc.item_code
+group by vnc.category_name, vs.item_code, vnc.item_name
+order by total_sold desc;
+
+select
+	vs.item_code
+	,vs.date_sale
+	,vs.quantity_sold_kg
+	,vs.unit_selling_price_rmb_kg
+	,vs.sale_or_return
+	,vwp.whsale_price_rmb_kg
+from supermarket_sales_data.veg_sale vs 
+join supermarket_sales_data.veg_whsale_price vwp on vs.item_code = vwp.item_code;
+
+select
+  vs.item_code
+  ,vs.date_sale
+  ,vs.quantity_sold_kg
+  ,vs.unit_selling_price_rmb_kg
+  ,vs.sale_or_return
+  ,vwp.whsale_price_rmb_kg
+  ,vlr.loss_rate_prct 
+from supermarket_sales_data.veg_sale vs
+join supermarket_sales_data.veg_whsale_price vwp on vs.item_code = vwp.item_code
+join supermarket_sales_data.veg_loss_rate vlr on vs.item_code = vlr.item_code;
+
+select
+  vnc.item_name
+  ,vlr.loss_rate_prct 
+from supermarket_sales_data.veg_name_category vnc 
+join supermarket_sales_data.veg_loss_rate vlr on vnc.item_code = vlr.item_code
+order by vnc.item_name;
+
+select
+  vnc.item_name
+  ,vlr.loss_rate_prct 
+from supermarket_sales_data.veg_name_category vnc 
+join supermarket_sales_data.veg_loss_rate vlr on vnc.item_code = vlr.item_code
+order by vlr.loss_rate_prct desc;
+
+select 
+	count(*)
+from supermarket_sales_data.veg_sale
+where sale_or_return = 'return';
+
+select
+	vs.item_code
+	,vs.date_sale
+	,vs.quantity_sold_kg
+	,vs.unit_selling_price_rmb_kg
+	,vs.sale_or_return
+	,vwp.whsale_price_rmb_kg
+from supermarket_sales_data.veg_sale vs 
+join supermarket_sales_data.veg_whsale_price vwp on vs.item_code = vwp.item_code
+where sale_or_return = 'return';
+
+select 
+	distinct vs.item_code
+	,vnc.item_name
+	,vnc.category_name
+	,sum(vs.quantity_sold_kg * vs.unit_selling_price_rmb_kg) as revenue_returned
+from supermarket_sales_data.veg_sale vs
+join supermarket_sales_data.veg_name_category vnc on vs.item_code = vnc.item_code 
+where sale_or_return = 'return'
+group by vs.item_code, vnc.item_name, vnc.category_name;
+
+select 
+	count(*)
+from supermarket_sales_data.veg_sale
+where discounted = 'Yes';
+
+select 
+	vs.*
+	,vwp.whsale_price_rmb_kg 
+	,vnc.item_name
+	,vnc.category_name
+from supermarket_sales_data.veg_sale vs
+join supermarket_sales_data.veg_whsale_price vwp on vs.item_code = vwp.item_code
+join supermarket_sales_data.veg_name_category vnc on vs.item_code = vnc.item_code 
+where discounted = 'Yes';
+
+select 
+	distinct vnc.item_name
+	,vnc.category_name
+from supermarket_sales_data.veg_name_category vnc
+join supermarket_sales_data.veg_sale vs on vnc.item_code = vs.item_code
+where discounted = 'Yes';
+
+select 
+	distinct vs.item_code
+	,vnc.item_name
+	,vnc.category_name
+	,sum(vs.quantity_sold_kg * vs.unit_selling_price_rmb_kg) as revenue_discounted
+from supermarket_sales_data.veg_sale vs
+join supermarket_sales_data.veg_name_category vnc on vs.item_code = vnc.item_code 
+where discounted = 'Yes'
+group by vs.item_code, vnc.item_name, vnc.category_name
+order by revenue_discounted desc;
+
+select 
+	vnc.category_name
+	,sum(vs.quantity_sold_kg * vs.unit_selling_price_rmb_kg) as total_revenue
+from supermarket_sales_data.veg_name_category vnc
+join supermarket_sales_data.veg_sale vs on vnc.item_code = vs.item_code
+group by vnc.category_name;
+
+select 
+	round(quantity_sold_kg * unit_selling_price_rmb_kg,2) as revenue_by_sale
+from supermarket_sales_data.veg_sale
+
+alter table supermarket_sales_data.veg_sale
+add revenue double;
+
+update supermarket_sales_data.veg_sale
+set revenue = round(quantity_sold_kg * unit_selling_price_rmb_kg,2)
+where revenue is null;
+
+select 
+	*
+from supermarket_sales_data.veg_sale
+limit 20;
+
+select 
+	sum(revenue) 
+from supermarket_sales_data.veg_sale;
+
+select 
+    vs.item_code
+    ,round(sum(vs.quantity_sold_kg * round((vs.unit_selling_price_rmb_kg - vwp.whsale_price_rmb_kg), 2))) as total_profit
+from supermarket_sales_data.veg_sale vs
+join supermarket_sales_data.veg_whsale_price vwp on vs.item_code = vwp.item_code and vs.date_sale = vwp.date_whsale
+group by vs.item_code;
+
+select 
+	vs.unit_selling_price_rmb_kg - vwp.whsale_price_rmb_kg as profit_margin
+from supermarket_sales_data.veg_sale vs 
+join supermarket_sales_data.veg_whsale_price vwp on vs.item_code = vwp.item_code and vs.date_sale = vwp.date_whsale;
+
+alter table supermarket_sales_data.veg_sale
+add profit_margin double;
+
+alter table supermarket_sales_data.veg_sale
+modify quantity_sold_kg decimal(10, 2);
+
+alter table supermarket_sales_data.veg_sale
+modify unit_selling_price_rmb_kg decimal(10, 2);
+
+alter table supermarket_sales_data.veg_sale
+modify revenue decimal(10, 2);
+
+alter table supermarket_sales_data.veg_sale
+modify profit_margin decimal(10, 2);
+
+alter table supermarket_sales_data.veg_whsale_price 
+modify whsale_price_rmb_kg decimal(10, 2);
+
+alter table supermarket_sales_data.veg_sale
+add whsale_price_rmb_kg decimal(10, 2);
+
+show indexes from supermarket_sales_data.veg_sale;
+
+show indexesfrom supermarket_sales_data.veg_whsale_price;
+
+create index idx_veg_sale_item_code on supermarket_sales_data.veg_sale(item_code);
+
+create index idx_veg_whsale_price_item_code on supermarket_sales_data.veg_whsale_price(item_code);
+
+update supermarket_sales_data.veg_sale vs
+join supermarket_sales_data.veg_whsale_price vwp on vs.item_code = vwp.item_code and vs.date_sale = vwp.date_whsale
+set vs.whsale_price_rmb_kg = vwp.whsale_price_rmb_kg;
+
+select 
+	*
+from supermarket_sales_data.veg_sale
+limit 20;
+
+select 
+	unit_selling_price_rmb_kg - whsale_price_rmb_kg as profit_margin
+from supermarket_sales_data.veg_sale;
+
+update supermarket_sales_data.veg_sale 
+set profit_margin = unit_selling_price_rmb_kg - whsale_price_rmb_kg;
+
+select 
+	*
+from supermarket_sales_data.veg_sale
+limit 20;
+
+show indexes from supermarket_sales_data.veg_loss_rate;
+
+create index idx_veg_loss_rate_item_code on supermarket_sales_data.veg_loss_rate(item_code);
+
+select 
+	distinct vlr.loss_rate_prct
+	,vnc.category_name 
+from supermarket_sales_data.veg_loss_rate vlr 
+join supermarket_sales_data.veg_name_category vnc on vlr.item_code = vnc.item_code 
+order by vlr.loss_rate_prct
+
+select 
+	quantity_sold_kg * profit_margin as profit
+from supermarket_sales_data.veg_sale;
+
+alter table supermarket_sales_data.veg_sale
+add profit decimal(10, 2);
+
+update supermarket_sales_data.veg_sale 
+set profit = quantity_sold_kg * profit_margin;
+
+select 
+	*
+from supermarket_sales_data.veg_sale
+limit 20;
+
+select 
+	sum(profit) as total_profit
+from supermarket_sales_data.veg_sale;
+
+select
+	category_name
+	,sum(profit)   as total_profit
+from supermarket_sales_data.veg_sale vs
+join supermarket_sales_data.veg_name_category vnc on vs.item_code = vnc.item_code 
+group by category_name;
+
+select 
+	hour(time_sale) as hour
+from supermarket_sales_data.veg_sale;
+
+alter table supermarket_sales_data.veg_sale
+add hour_sale decimal(2, 0);
+
+update supermarket_sales_data.veg_sale
+set hour_sale = hour(time_sale);
+
+select 
+	*
+from supermarket_sales_data.veg_sale
+limit 20;
+
+select 
+	count(*)
+from supermarket_sales_data.veg_sale
+where discounted = 'Yes' and sale_or_return = 'return';
