@@ -24,7 +24,7 @@
 *Review the SQL Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Supermarket_Sales)**<br />
 *Review the Python Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Supermarket_Sales%20Python.ipynb)**<br />
 
-![Supermarket Sales Dashboard](Supermarket_sales1.png)
+![Supermarket Sales Dashboard](visuals/Supermarket_sales1.png)
 
   - HR Employee Attrition Dataset Analysis Project <br />
   - Data Cleaning and Data Exploration <br />
