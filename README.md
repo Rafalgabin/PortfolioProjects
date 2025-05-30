@@ -28,8 +28,8 @@
 
   - HR Employee Attrition Dataset Analysis Project <br />
   - Data Cleaning and Data Exploration <br />
-*Review the SQL Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Supermarket_Sales)**<br />
-*Review the Python Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Supermarket_Sales%20Python.ipynb)**<br />
+*Review the SQL Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/HR%20Employee%20Attrition)**<br />
+*Review the Python Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/HR%20Employee%20Attrition%20Python.ipynb)**<br />
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
