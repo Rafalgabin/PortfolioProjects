@@ -33,6 +33,6 @@
 *Review the SQL Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/HR%20Employee%20Attrition)**<br />
 *Review the Python Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/HR%20Employee%20Attrition%20Python.ipynb)**<br />
 
-![HR Employee Attrition Dashboard](visuals/HR Employee Attrition1.png)
+![HR Employee Attrition Dashboard](visuals/HR_Employee_Attrition1.png)
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
