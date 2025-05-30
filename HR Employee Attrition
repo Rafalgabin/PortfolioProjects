@@ -1,0 +1,496 @@
+select
+	*
+from hr_employee_attrition
+limit 100;
+
+describe hr_employee_attrition;
+
+select
+	count(*)
+from hr_employee_attrition;
+
+alter table hr_employee_attrition 
+rename column BusinessTravel to Business_Travel;
+
+alter table hr_employee_attrition 
+rename column DailyRate to Daily_Rate;
+
+alter table hr_employee_attrition 
+rename column DistanceFromHome to Distance_From_Home;
+
+alter table hr_employee_attrition 
+rename column EducationField to Education_Field;
+
+alter table hr_employee_attrition 
+rename column EmployeeCount to Employee_Count;
+
+alter table hr_employee_attrition 
+rename column EmployeeNumber to Employee_Number;
+
+alter table hr_employee_attrition 
+rename column EnvironmentSatisfaction to Environment_Satisfaction;
+
+alter table hr_employee_attrition 
+rename column HourlyRate to Hourly_Rate;
+
+alter table hr_employee_attrition 
+rename column JobInvolvement to Job_Involvement;
+
+alter table hr_employee_attrition 
+rename column JobLevel to Job_Level;
+
+alter table hr_employee_attrition 
+rename column JobRole to Job_Role;
+
+alter table hr_employee_attrition 
+rename column JobSatisfaction to Job_Satisfaction;
+
+alter table hr_employee_attrition 
+rename column MaritalStatus to Marital_Status;
+
+alter table hr_employee_attrition 
+rename column MonthlyIncome to Monthly_Income;
+
+alter table hr_employee_attrition 
+rename column MonthlyRate to Monthly_Rate;
+
+alter table hr_employee_attrition 
+rename column NumCompaniesWorked to Num_Companies_Worked;
+
+alter table hr_employee_attrition 
+rename column Over18 to Age_Over_18;
+
+alter table hr_employee_attrition 
+rename column OverTime to Over_Time;
+
+alter table hr_employee_attrition 
+rename column PercentSalaryHike to Salary_Hike_Prcnt;
+
+alter table hr_employee_attrition 
+rename column RelationshipSatisfaction to Relationship_Satisfaction;
+
+alter table hr_employee_attrition 
+rename column StandardHours to Standard_Hours;
+
+alter table hr_employee_attrition 
+rename column StockOptionLevel to Stock_Option_Level;
+
+alter table hr_employee_attrition 
+rename column TotalWorkingYears to Total_Working_Years;
+
+alter table hr_employee_attrition 
+rename column TrainingTimesLastYear to Training_Times_Last_Year;
+
+alter table hr_employee_attrition 
+rename column WorkLifeBalance to Work_Life_Balance;
+
+alter table hr_employee_attrition 
+rename column YearsAtCompany to Years_At_Company;
+
+alter table hr_employee_attrition 
+rename column YearsInCurrentRole to Years_In_Current_Role;
+
+alter table hr_employee_attrition 
+rename column YearsSinceLastPromotion to Years_Since_Last_Promotion;
+
+alter table hr_employee_attrition 
+rename column YearsWithCurrManager to Years_With_Curr_Manager;
+
+alter table hr_employee_attrition 
+rename column PerformanceRating to Performance_Rating;
+
+select 
+    concat('select count(*) as nulls_', column_name, ' from hr_employee_attrition where `', column_name, '` is null;') as nulls_query
+from 
+    information_schema.columns 
+where 
+    table_name = 'hr_employee_attrition' 
+    and table_schema = 'HR-Employee-Attrition';
+
+select count(*) as nulls_Age from hr_employee_attrition where `Age` is null;             
+select count(*) as nulls_Attrition from hr_employee_attrition where `Attrition` is null;        
+select count(*) as nulls_Business_Travel from hr_employee_attrition where `Business_Travel` is null;       
+select count(*) as nulls_Daily_Rate from hr_employee_attrition where `Daily_Rate` is null;              
+select count(*) as nulls_Department from hr_employee_attrition where `Department` is null;            
+select count(*) as nulls_Distance_From_Home from hr_employee_attrition where `Distance_From_Home` is null;    
+select count(*) as nulls_Education from hr_employee_attrition where `Education` is null;                                
+select count(*) as nulls_Education_Field from hr_employee_attrition where `Education_Field` is null;                    
+select count(*) as nulls_Employee_Count from hr_employee_attrition where `Employee_Count` is null;                      
+select count(*) as nulls_Employee_Number from hr_employee_attrition where `Employee_Number` is null;                    
+select count(*) as nulls_Environment_Satisfaction from hr_employee_attrition where `Environment_Satisfaction` is null;  
+select count(*) as nulls_Gender from hr_employee_attrition where `Gender` is null;                                      
+select count(*) as nulls_Hourly_Rate from hr_employee_attrition where `Hourly_Rate` is null;                            
+select count(*) as nulls_Job_Involvement from hr_employee_attrition where `Job_Involvement` is null;                    
+select count(*) as nulls_Job_Level from hr_employee_attrition where `Job_Level` is null;                                
+select count(*) as nulls_Job_Role from hr_employee_attrition where `Job_Role` is null;                                  
+select count(*) as nulls_Job_Satisfaction from hr_employee_attrition where `Job_Satisfaction` is null;                  
+select count(*) as nulls_Marital_Status from hr_employee_attrition where `Marital_Status` is null;                      
+select count(*) as nulls_Monthly_Income from hr_employee_attrition where `Monthly_Income` is null;                      
+select count(*) as nulls_Monthly_Rate from hr_employee_attrition where `Monthly_Rate` is null;                          
+select count(*) as nulls_Num_Companies_Worked from hr_employee_attrition where `Num_Companies_Worked` is null;          
+select count(*) as nulls_Age_Over_18 from hr_employee_attrition where `Age_Over_18` is null;                            
+select count(*) as nulls_Over_Time from hr_employee_attrition where `Over_Time` is null;                                
+select count(*) as nulls_Salary_Hike_Prcnt from hr_employee_attrition where `Salary_Hike_Prcnt` is null;                
+select count(*) as nulls_Performance_Rating from hr_employee_attrition where `Performance_Rating` is null;              
+select count(*) as nulls_Relationship_Satisfaction from hr_employee_attrition where `Relationship_Satisfaction` is null;
+select count(*) as nulls_Standard_Hours from hr_employee_attrition where `Standard_Hours` is null;                      
+select count(*) as nulls_Stock_Option_Level from hr_employee_attrition where `Stock_Option_Level` is null;              
+select count(*) as nulls_Total_Working_Years from hr_employee_attrition where `Total_Working_Years` is null;            
+select count(*) as nulls_Training_Times_Last_Year from hr_employee_attrition where `Training_Times_Last_Year` is null;  
+select count(*) as nulls_Work_Life_Balance from hr_employee_attrition where `Work_Life_Balance` is null;                
+select count(*) as nulls_Years_At_Company from hr_employee_attrition where `Years_At_Company` is null;                  
+select count(*) as nulls_Years_In_Current_Role from hr_employee_attrition where `Years_In_Current_Role` is null;        
+select count(*) as nulls_YearsSinceLastPromotion from hr_employee_attrition where `YearsSinceLastPromotion` is null;    
+select count(*) as nulls_Years_With_Curr_Manager from hr_employee_attrition where `Years_With_Curr_Manager` is null;                                                             
+
+select 
+    concat('select distinct `', column_name, '` from hr_employee_attrition;') as distinct_query
+from 
+    information_schema.columns 
+where 
+    table_name = 'hr_employee_attrition' 
+    and table_schema = 'HR-Employee-Attrition';
+
+select distinct `Age` from hr_employee_attrition
+order by age;
+
+select distinct `Attrition` from hr_employee_attrition
+order by Attrition;                
+
+alter table hr_employee_attrition 
+rename column Attrition to Company_Left;
+
+select distinct `Business_Travel` from hr_employee_attrition
+order by Business_Travel;    
+
+update hr_employee_attrition
+set Business_Travel = 'Non Traveling'
+where Business_Travel = 'Non-Travel';
+
+update hr_employee_attrition
+set Business_Travel = 'Travel Frequently'
+where Business_Travel = 'Travel_Frequently';
+
+update hr_employee_attrition
+set Business_Travel = 'Travel Rarely'
+where Business_Travel = 'Travel_Rarely';
+
+select distinct `Daily_Rate` from hr_employee_attrition
+order by Daily_Rate;    
+
+select distinct `Department` from hr_employee_attrition;    
+
+select distinct `Distance_From_Home` from hr_employee_attrition
+order by Distance_From_Home;       
+
+select distinct `Education` from hr_employee_attrition;    
+
+/*
+1 'Bellow College'
+2 'College'
+3 'Bachelor'
+4 'Master'
+5 'Doctor'
+*/
+
+alter table hr_employee_attrition
+change column Education Education varchar(16);
+
+update hr_employee_attrition
+set Education = 'Bellow College'
+where Education = '1';
+
+update hr_employee_attrition
+set Education = 'College'
+where Education = '2';
+
+update hr_employee_attrition
+set Education = 'Bachelor'
+where Education = '3';
+
+update hr_employee_attrition
+set Education = 'Master'
+where Education = '4';
+
+update hr_employee_attrition
+set Education = 'Doctor'
+where Education = '5';
+
+select distinct `Education_Field` from hr_employee_attrition;  
+select distinct `Employee_Count` from hr_employee_attrition;  
+
+alter table hr_employee_attrition
+drop column Employee_Count;
+
+select distinct `Employee_Number` from hr_employee_attrition; 
+
+select count(distinct `Employee_Number`) from hr_employee_attrition; 
+
+select distinct `Environment_Satisfaction` from hr_employee_attrition; 
+select distinct `Gender` from hr_employee_attrition;    
+
+select distinct `Hourly_Rate` from hr_employee_attrition  
+order by Hourly_Rate;
+
+select distinct `Job_Involvement` from hr_employee_attrition;   
+select distinct `Job_Level` from hr_employee_attrition;   
+select distinct `Job_Role` from hr_employee_attrition;  
+select distinct `Job_Satisfaction` from hr_employee_attrition;  
+select distinct `Marital_Status` from hr_employee_attrition;   
+select distinct `Monthly_Income` from hr_employee_attrition;   
+
+select 
+	max(Monthly_Income)		as max_Monthly_Income
+	,min(Monthly_Income)	as_min_Monthly_Income
+from hr_employee_attrition; 
+
+select distinct `Monthly_Rate` from hr_employee_attrition;       
+
+select
+	count(Monthly_Rate) from hr_employee_attrition;   
+
+select
+	count(Monthly_Income) from hr_employee_attrition; 
+
+select distinct `Num_Companies_Worked` from hr_employee_attrition;    
+select distinct `Age_Over_18` from hr_employee_attrition; 
+
+select 
+	*
+from hr_employee_attrition
+where age = '18';
+
+alter table hr_employee_attrition
+drop column Age_Over_18;
+
+select distinct `Over_Time` from hr_employee_attrition;  
+
+alter table hr_employee_attrition 
+rename column Over_Time to If_Work_Overtimes;
+
+select distinct `Salary_Hike_Prcnt` from hr_employee_attrition;    
+select distinct `Performance_Rating` from hr_employee_attrition;  
+select distinct `Relationship_Satisfaction` from hr_employee_attrition;
+select distinct `Standard_Hours` from hr_employee_attrition;         
+select distinct `Stock_Option_Level` from hr_employee_attrition;    
+select distinct `Total_Working_Years` from hr_employee_attrition;   
+select distinct `Training_Times_Last_Year` from hr_employee_attrition; 
+select distinct `Work_Life_Balance` from hr_employee_attrition;      
+select distinct `Years_At_Company` from hr_employee_attrition;    
+select distinct `Years_In_Current_Role` from hr_employee_attrition;   
+select distinct `YearsSinceLastPromotion` from hr_employee_attrition;  
+select distinct `Years_With_Curr_Manager` from hr_employee_attrition;  
+
+alter table hr_employee_attrition 
+add column Age_Group varchar(7);
+
+update hr_employee_attrition
+set Age_Group = '60s'
+where Age = '60';
+
+update hr_employee_attrition
+set Age_Group = '50s'
+where Age between '50' and '59';
+
+update hr_employee_attrition
+set Age_Group = '40s'
+where Age between '40' and '49';
+
+update hr_employee_attrition
+set Age_Group = '30s'
+where Age between '30' and '39';
+
+update hr_employee_attrition
+set Age_Group = '20s'
+where Age between '20' and '29';
+
+update hr_employee_attrition
+set Age_Group = '18 & 19'
+where Age between '18' and '19';
+
+/* I will create column with names and surnames generated randomly in python to make the later data visualisations more personal. */
+
+alter table hr_employee_attrition
+add column first_name varchar(16),
+add column last_name varchar(16);
+
+select 
+	 first_name
+from hr_employee_attrition;
+
+select
+	count(first_name)
+from hr_employee_attrition;
+
+select
+	count(distinct first_name)
+from hr_employee_attrition;
+
+select 	
+	first_name
+	,last_name
+	,count(*)
+from hr_employee_attrition
+group by first_name, last_name
+having count(*) > 1;
+
+/* Looks like some duplicates where generated, I will change them as there are few.*/
+
+select 
+	 distinct first_name
+from hr_employee_attrition;
+
+select 
+	*
+from hr_employee_attrition
+where last_name = 'Davis';
+
+update hr_employee_attrition 
+set last_name = 'Burden'
+where Employee_Number = '22';
+
+select 
+	*
+from hr_employee_attrition
+where last_name = 'Brown';
+
+update hr_employee_attrition 
+set last_name = 'Burdt'
+where Employee_Number = '129';
+
+update hr_employee_attrition 
+set last_name = 'Bird'
+where Employee_Number = '132';
+
+select 
+	*
+from hr_employee_attrition
+where last_name = 'Smith';
+
+update hr_employee_attrition 
+set last_name = 'Bird'
+where Employee_Number = '261';
+
+select 
+	*
+from hr_employee_attrition
+where last_name = 'Turner';
+
+update hr_employee_attrition 
+set last_name = 'Burdt'
+where Employee_Number = '309';
+
+update hr_employee_attrition 
+set last_name = 'Bird'
+where Employee_Number = '825';
+
+select 
+	*
+from hr_employee_attrition
+where last_name = 'Williams';
+
+update hr_employee_attrition 
+set last_name = 'Johnson'
+where Employee_Number = '336';
+
+update hr_employee_attrition 
+set last_name = 'Riddick'
+where Employee_Number = '544';
+
+update hr_employee_attrition 
+set last_name = 'Tobby'
+where Employee_Number = '1740';
+
+select 
+	*
+from hr_employee_attrition
+where last_name = 'Harris';
+
+update hr_employee_attrition 
+set last_name = 'Tobby'
+where Employee_Number = '1860';
+
+select 
+	*
+from hr_employee_attrition
+where last_name = 'Jackson';
+
+update hr_employee_attrition 
+set last_name = 'Riddick'
+where Employee_Number = '405';
+
+select 
+	*
+from hr_employee_attrition
+where last_name = 'Jones';
+
+update hr_employee_attrition 
+set last_name = 'Riddick'
+where Employee_Number = '601';
+
+select 
+	*
+from hr_employee_attrition
+where last_name = 'Brown';
+
+update hr_employee_attrition 
+set last_name = 'Yang'
+where Employee_Number = '675';
+
+select 
+	*
+from hr_employee_attrition
+where last_name = 'Clark';
+
+update hr_employee_attrition 
+set last_name = 'Yang'
+where Employee_Number = '752';
+
+select 
+	*
+from hr_employee_attrition
+where last_name = 'Williams';
+
+update hr_employee_attrition 
+set last_name = 'Yang'
+where Employee_Number = '1233';
+
+update hr_employee_attrition 
+set last_name = 'Yang'
+where Employee_Number = '1256';
+
+select 
+	*
+from hr_employee_attrition
+where last_name = 'Sanchez';
+
+update hr_employee_attrition 
+set last_name = 'Young'
+where Employee_Number = '1295';
+
+select 
+	*
+from hr_employee_attrition
+where last_name = 'Frazier';
+
+update hr_employee_attrition 
+set last_name = 'Fraesier'
+where Employee_Number = '1407';
+
+select 
+	*
+from hr_employee_attrition
+where last_name = 'Smith';
+
+update hr_employee_attrition 
+set last_name = 'Cleric'
+where Employee_Number = '1972';
+
+select 
+	*
+from hr_employee_attrition
+where last_name = 'Rodriguez';
+
+update hr_employee_attrition 
+set last_name = 'Cleric'
+where Employee_Number = '1778';                          
