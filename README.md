@@ -11,6 +11,7 @@
 
 ![Netflix Dashboard](visuals/Netflix1.jpg)
 
+
   - Airbnb Open Data Dataset Analysis Project <br />
   - Data Cleaning and Data Exploration <br />
 *Review the SQL Script:* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Airbnb_Open_DataProject)**<br />
@@ -18,18 +19,20 @@
 ![Airbnb Dashboard](visuals/Airbnb1.png)
 
 
-- [x] **Python, SQL & Power Bi** - 
   - Supermarket Sales Dataset Analysis Project <br />
   - Data Cleaning and Data Exploration <br />
 *Review the SQL Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Supermarket_Sales)**<br />
-*Review the Python Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Supermarket_Sales%20Python.ipynb)**<br />
 
 ![Supermarket Sales Dashboard](visuals/Supermarket_sales1.png)
 
+
+
+- [x] **Python, SQL & Power Bi** - 
   - HR Employee Attrition Dataset Analysis Project <br />
   - Data Cleaning and Data Exploration <br />
 *Review the SQL Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/HR%20Employee%20Attrition)**<br />
 *Review the Python Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/HR%20Employee%20Attrition%20Python.ipynb)**<br />
 
+![HR Employee Attrition Dashboard](visuals/HR Employee Attrition1.png)
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
