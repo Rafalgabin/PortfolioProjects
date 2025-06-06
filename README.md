@@ -64,6 +64,6 @@
 
 - Global AI Job Market 2024-2025 Dashboard <br />
 
-![Dashboard](visuals/excel/Global AI Job Market 2024-2025 Dashboard.png)
+![Global AI Job Market 2024-2025 Dashboard](visuals/excel/Global AI Job Market 2024-2025 Dashboard.png)
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
