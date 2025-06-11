@@ -16,15 +16,17 @@
 *Review the SQL Script:* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Netflix)**<br />
 *Additional information regarding dataset and conclusions:* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Netflix%20readme)**<br />
 
+
 ![Netflix Dashboard](visuals/Netflix1.jpg)
 
 
 
-  - Airbnb Open Data Dataset Analysis Project <br />
+  - NewYork Airbnb Open Data Dataset Analysis Project <br />
   
   - Data Cleaning and Data Exploration <br />
   
 *Review the SQL Script:* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Airbnb_Open_DataProject)**<br />
+*Additional information regarding dataset and conclusions:* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Airbnb%20Open%20Data%20readme)**<br />
 
 
 ![Airbnb Dashboard](visuals/Airbnb1.png)
