@@ -14,7 +14,6 @@
   - Data Cleaning and Data Exploration <br />
   
 *Review the SQL Script:* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Netflix)**<br />
-*Full Power Bi:* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Netflix)**<br />
 *Additional information regarding dataset and conclusions:* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Netflix%20readme)**<br />
 
 
