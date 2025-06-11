@@ -1,0 +1,53 @@
+#### *New York City Airbnb Data
+Airbnb, Inc is an American company that operates an online marketplace for lodging, primarily homestays for vacation rentals, and tourism activities. Based in San Francisco, California, the platform is accessible via website and mobile app. 
+Airbnb does not own any of the listed properties; instead, it profits by receiving commission from each booking. The company was founded in 2008. Airbnb is a shortened version of its original name.
+
+About Dataset
+Since 2008, guests and hosts have used Airbnb to travel in a more unique, personalized way. As part of the Airbnb Inside initiative, this dataset describes the listing activity of homestays in New York City
+
+Dataset was cleaned with MySQL and visualized with PowerBi. The purpose of this is to train and test my data cleaning and visualization skills. 
+
+Key Insights:
+- Price and Servixe Fee:
+  * Mean Price: $625.29.
+  * Median Price: $624.00 (fairly symmetrical distribution).
+  * Price Range: $50 to $1200.
+  * IQR: $340 (25th percentile) to $913 (75th percentile).
+  * Standard Deviation: $331.67, moderate price variation.
+
+  * Mean Service Fee: $125.03.
+  * Median Service Fee: $125.00 (very close to the mean, normal distribution).
+  * Service Fee Range: $10 to $240.
+  * IQR: $68 (25th percentile) to $183 (75th percentile), moderate spread.
+
+  * Number of reviews does not strongly determine price.
+  * Host verification does not impact pricing.
+  * Hosts do not charge noticeably more for stricter cancellation policies.
+  * Service fees are directly proportional to the price, higher-priced listings almost always have higher service fees.
+  * Hosts that have more listings do not necessarily charge higher or lower prices.
+  * Minimum stay requirements do not significantly impact pricing
+  * Seasonal trends in pricing: Prices tend to peak in March, May, and September. 
+    October has the lowest average price. The price variations are relatively small.
+
+- Price Trends by Room Type:
+  * Small variation in average price across room types.
+  * Shared rooms & private rooms have a surprisingly high median price, potential outliers.
+  * Hotel rooms are the most expensive on average, possibly due to premium services.
+  * Hotel rooms tend to be more available at higher prices, while shared rooms are less available at lower prices.
+
+- Price Trends by Neighborhood Groups and Boroughs:
+  * Pricing is fairly consistent. Minimum of $50 and a maximum of $1200 in most cases.
+  * Queens has the highest average price, while Manhattan has the lowest.
+  * Neighborhood has small to almost no effect on the relationship between price and availability.
+  * High-priced areas are clustered in certain regions, most likely near popular tourist destinations or 'luxury' neighborhoods.
+  * Lower-priced listings are more dispersed, suggesting a mix of budget-friendly options across the city.
+  * Some boroughs have more concentrated pricing zones, while others show a wider range of prices.
+ 
+- Review Rate:
+  * Staten Island, Bronx and Queens have the highest average review rates.
+  * Manhattan has the lowest review rate.
+  * Hotel Room stands out with the highest average review rate, other room types tend to have very similar lower average review rates.
+
+- Number of reviews correlate with number of bookings, by this we can observe:
+  * The number of reviews steadily increased from 2012 to 2019, peaking significantly in year 2019. A sharp decline in 2020 is visible likely due to the COVID-19 pandemic and its travel restrictions.
+    Post-2020, reviews recovered but did not reach level from year 2019, slow rebound in travel. Recent years (2022–2024) show a gradual increase which indicate Airbnb activity is regaining momentum.
