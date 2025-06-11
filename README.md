@@ -14,7 +14,7 @@
   - Data Cleaning and Data Exploration <br />
   
 *Review the SQL Script:* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Netflix)**<br />
-
+*Additional information regarding dataset and conclusions:* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Netflix)**<br />
 
 ![Netflix Dashboard](visuals/Netflix1.jpg)
 
