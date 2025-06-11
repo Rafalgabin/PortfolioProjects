@@ -2,7 +2,7 @@
 
 ## Following bellow are my projects in SQL, Python, Power Bi & Excel: <br />
 
-#### *You can also take a look at my Linkedin : [RafałGabin](https://www.linkedin.com/in/rafał-gabin-4a144a250/)* <br />
+#### *You can also take a look at my Linkedin : [Rafał Gabin](https://www.linkedin.com/in/rafał-gabin-4a144a250/)* <br />
 
 
 
@@ -14,7 +14,7 @@
   - Data Cleaning and Data Exploration <br />
   
 *Review the SQL Script:* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Netflix)**<br />
-*Additional information regarding dataset and conclusions:* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Netflix)**<br />
+*Additional information regarding dataset and conclusions:* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Netflix_readme)**<br />
 
 ![Netflix Dashboard](visuals/Netflix1.jpg)
 
