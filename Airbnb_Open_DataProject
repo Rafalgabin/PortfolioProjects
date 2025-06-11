@@ -69,32 +69,32 @@ alter table airbnb_open_data_work
 rename column `availability 365` to availability_365;
 
 select
-	sum(id is null) 								              as id_nulls
-	,sum(NAME is null) 								            as NAME_nulls
-	,sum(host_id  is null) 						          	as host_id_nulls
+	sum(id is null) 					as id_nulls
+	,sum(NAME is null) 					as NAME_nulls
+	,sum(host_id  is null) 					as host_id_nulls
 	,sum(host_identity_verified is null) 		    	as host_identity_verified_nulls
-	,sum(host_name is null) 					          	as host_name_nulls
-	,sum(neighbourhood_group is null) 				    as neighbourhood_group_nulls
-	,sum(neighbourhood is null) 					        as neighbourhood_nulls
-	,sum(lat is null) 								            as lat_nulls
-	,sum(`long` is null) 						            	as long_nulls
-	,sum(country is null) 							          as country_nulls
-	,sum(country_code is null) 					        	as country_code_nulls
-	,sum(instant_bookable is null) 				      	as instant_bookable_nulls
-	,sum(cancellation_policy is null) 				    as cancellation_policy_nulls
-	,sum(room_type is null) 						          as room_type_nulls
-	,sum(Construction_year is null) 				      as Construction_year_nulls
-	,sum(price is null) 							            as price_nulls
-	,sum(service_fee is null) 						        as service_fee_nulls
-	,sum(minimum_nights is null) 					        as minimum_nights_nulls
-	,sum(number_of_reviews is null) 				      as number_of_reviews_nulls
-	,sum(last_review is null) 						        as last_review_nulls
-	,sum(reviews_per_month is null) 				      as reviews_per_month_nulls
-	,sum(review_rate_number is null) 				      as review_rate_number_nulls
-	,sum(calculated_host_listings_count is null) 	as calculated_host_listings_count_nulls
-	,sum(availability_365 is null) 					      as availability_365_nulls
-	,sum(house_rules is null) 						        as house_rules_nulls
-	,sum(license is null) 							          as license_nulls
+	,sum(host_name is null) 				as host_name_nulls
+	,sum(neighbourhood_group is null) 			as neighbourhood_group_nulls
+	,sum(neighbourhood is null) 				as neighbourhood_nulls
+	,sum(lat is null) 					as lat_nulls
+	,sum(`long` is null) 					as long_nulls
+	,sum(country is null) 					as country_nulls
+	,sum(country_code is null) 				as country_code_nulls
+	,sum(instant_bookable is null) 				as instant_bookable_nulls
+	,sum(cancellation_policy is null) 			as cancellation_policy_nulls
+	,sum(room_type is null) 				as room_type_nulls
+	,sum(Construction_year is null) 			as Construction_year_nulls
+	,sum(price is null) 					as price_nulls
+	,sum(service_fee is null) 				as service_fee_nulls
+	,sum(minimum_nights is null) 				as minimum_nights_nulls
+	,sum(number_of_reviews is null) 			as number_of_reviews_nulls
+	,sum(last_review is null) 				as last_review_nulls
+	,sum(reviews_per_month is null) 			as reviews_per_month_nulls
+	,sum(review_rate_number is null) 			as review_rate_number_nulls
+	,sum(calculated_host_listings_count is null) 		as calculated_host_listings_count_nulls
+	,sum(availability_365 is null) 				as availability_365_nulls
+	,sum(house_rules is null) 				as house_rules_nulls
+	,sum(license is null) 					as license_nulls
 from airbnb_open_data_work;
 
 select
@@ -134,58 +134,58 @@ alter table airbnb_open_data_work2
 rename to airbnb_open_data_work;
 
 select
-	sum(id is null) 								              as id_nulls
-	,sum(NAME is null) 								            as NAME_nulls
-	,sum(host_id  is null) 						          	as host_id_nulls
+	sum(id is null) 					as id_nulls
+	,sum(NAME is null) 					as NAME_nulls
+	,sum(host_id  is null) 					as host_id_nulls
 	,sum(host_identity_verified is null) 		    	as host_identity_verified_nulls
-	,sum(host_name is null) 					          	as host_name_nulls
-	,sum(neighbourhood_group is null) 				    as neighbourhood_group_nulls
-	,sum(neighbourhood is null) 					        as neighbourhood_nulls
-	,sum(lat is null) 								            as lat_nulls
-	,sum(`long` is null) 						            	as long_nulls
-	,sum(country is null) 							          as country_nulls
-	,sum(country_code is null) 					        	as country_code_nulls
-	,sum(instant_bookable is null) 				      	as instant_bookable_nulls
-	,sum(cancellation_policy is null) 				    as cancellation_policy_nulls
-	,sum(room_type is null) 						          as room_type_nulls
-	,sum(Construction_year is null) 				      as Construction_year_nulls
-	,sum(price is null) 							            as price_nulls
-	,sum(service_fee is null) 						        as service_fee_nulls
-	,sum(minimum_nights is null) 					        as minimum_nights_nulls
-	,sum(number_of_reviews is null) 				      as number_of_reviews_nulls
-	,sum(last_review is null) 						        as last_review_nulls
-	,sum(reviews_per_month is null) 				      as reviews_per_month_nulls
-	,sum(review_rate_number is null) 				      as review_rate_number_nulls
-	,sum(calculated_host_listings_count is null) 	as calculated_host_listings_count_nulls
-	,sum(availability_365 is null) 					      as availability_365_nulls
-	,sum(house_rules is null) 						        as house_rules_nulls
-	,sum(license is null) 							          as license_nulls
+	,sum(host_name is null) 				as host_name_nulls
+	,sum(neighbourhood_group is null) 			as neighbourhood_group_nulls
+	,sum(neighbourhood is null) 				as neighbourhood_nulls
+	,sum(lat is null) 					as lat_nulls
+	,sum(`long` is null) 					as long_nulls
+	,sum(country is null) 					as country_nulls
+	,sum(country_code is null) 				as country_code_nulls
+	,sum(instant_bookable is null) 				as instant_bookable_nulls
+	,sum(cancellation_policy is null) 			as cancellation_policy_nulls
+	,sum(room_type is null) 				as room_type_nulls
+	,sum(Construction_year is null) 			as Construction_year_nulls
+	,sum(price is null) 					as price_nulls
+	,sum(service_fee is null) 				as service_fee_nulls
+	,sum(minimum_nights is null) 				as minimum_nights_nulls
+	,sum(number_of_reviews is null) 			as number_of_reviews_nulls
+	,sum(last_review is null) 				as last_review_nulls
+	,sum(reviews_per_month is null) 			as reviews_per_month_nulls
+	,sum(review_rate_number is null) 			as review_rate_number_nulls
+	,sum(calculated_host_listings_count is null) 		as calculated_host_listings_count_nulls
+	,sum(availability_365 is null) 				as availability_365_nulls
+	,sum(house_rules is null) 				as house_rules_nulls
+	,sum(license is null) 					as license_nulls
 from airbnb_open_data_work;
 
 select
-	(sum(NAME is null) / 102058	) * 100									              as NAME_percent_nulls
-	,(sum(host_identity_verified is null) / 102058	) * 100				    as host_identity_verified_percent_nulls
-	,(sum(host_name is null) / 102058	) * 100							            as host_name_percent_nulls
-	,(sum(neighbourhood_group is null) / 102058	) * 100				      	as neighbourhood_group_percent_nulls
-	,(sum(neighbourhood is null) / 102058	) * 100						          as neighbourhood_percent_nulls
-	,(sum(lat is null) / 102058	) * 100								              	as lat_percent_nulls
-	,(sum(`long` is null) / 102058	) * 100							            	as long_percent_nulls
-	,(sum(country is null) / 102058	) * 100								            as country_percent_nulls
-	,(sum(country_code is null) / 102058	) * 100					          	as country_code_percent_nulls
-	,(sum(instant_bookable is null) / 102058	) * 100					        as instant_bookable_percent_nulls
-	,(sum(cancellation_policy is null) / 102058	) * 100				      	as cancellation_policy_percent_nulls
-	,(sum(Construction_year is null) / 102058	) * 100				        	as Construction_year_percent_nulls
-	,(sum(price is null) / 102058	) * 100								              as price_percent_nulls
-	,(sum(service_fee is null) / 102058	) * 100						          	as service_fee_percent_nulls
-	,(sum(minimum_nights is null) / 102058	) * 100					        	as minimum_nights_percent_nulls
-	,(sum(number_of_reviews is null) / 102058	) * 100				        	as number_of_reviews_percent_nulls
-	,(sum(last_review is null) / 102058	) * 100						          	as last_review_percent_nulls
-	,(sum(reviews_per_month is null) / 102058	) * 100				        	as reviews_per_month_percent_nulls
-	,(sum(review_rate_number is null) / 102058	) * 100				      	as review_rate_number_percent_nulls
+	(sum(NAME is null) / 102058	) * 100					as NAME_percent_nulls
+	,(sum(host_identity_verified is null) / 102058	) * 100			as host_identity_verified_percent_nulls
+	,(sum(host_name is null) / 102058	) * 100				as host_name_percent_nulls
+	,(sum(neighbourhood_group is null) / 102058	) * 100			as neighbourhood_group_percent_nulls
+	,(sum(neighbourhood is null) / 102058	) * 100				as neighbourhood_percent_nulls
+	,(sum(lat is null) / 102058	) * 100					as lat_percent_nulls
+	,(sum(`long` is null) / 102058	) * 100					as long_percent_nulls
+	,(sum(country is null) / 102058	) * 100					as country_percent_nulls
+	,(sum(country_code is null) / 102058	) * 100				as country_code_percent_nulls
+	,(sum(instant_bookable is null) / 102058	) * 100			as instant_bookable_percent_nulls
+	,(sum(cancellation_policy is null) / 102058	) * 100			as cancellation_policy_percent_nulls
+	,(sum(Construction_year is null) / 102058	) * 100			as Construction_year_percent_nulls
+	,(sum(price is null) / 102058	) * 100					as price_percent_nulls
+	,(sum(service_fee is null) / 102058	) * 100				as service_fee_percent_nulls
+	,(sum(minimum_nights is null) / 102058	) * 100				as minimum_nights_percent_nulls
+	,(sum(number_of_reviews is null) / 102058	) * 100			as number_of_reviews_percent_nulls
+	,(sum(last_review is null) / 102058	) * 100				as last_review_percent_nulls
+	,(sum(reviews_per_month is null) / 102058	) * 100			as reviews_per_month_percent_nulls
+	,(sum(review_rate_number is null) / 102058	) * 100			as review_rate_number_percent_nulls
 	,(sum(calculated_host_listings_count is null) / 102058	) * 100		as calculated_host_listings_count_percent_nulls
-	,(sum(availability_365 is null) / 102058	) * 100				        	as availability_365_percent_nulls
-	,(sum(house_rules is null) / 102058	) * 100						           	as house_rules_percent_nulls
-	,(sum(license is null) / 102058	) * 100								            as license_percent_nulls
+	,(sum(availability_365 is null) / 102058	) * 100			as availability_365_percent_nulls
+	,(sum(house_rules is null) / 102058	) * 100				as house_rules_percent_nulls
+	,(sum(license is null) / 102058	) * 100					as license_percent_nulls
 from airbnb_open_data_work;
 
 select 
@@ -664,48 +664,48 @@ group by calculated_host_listings_count;
 /*/////////////////////////////////////////////////////////*/
 
 select 
-	sum(id is null) 								              as id_nulls
-	,sum(host_id  is null) 							          as host_id_nulls
-	,sum(host_identity_verified is null) 			    as host_identity_verified_nulls
-	,sum(host_name is null) 						          as host_name_nulls
-	,sum(neighbourhood_group is null) 				    as neighbourhood_group_nulls
-	,sum(neighbourhood is null) 					        as neighbourhood_nulls
-	,sum(lat is null) 								            as lat_nulls
-	,sum(`long` is null) 							            as long_nulls
-	,sum(instant_bookable is null) 					      as instant_bookable_nulls
-	,sum(cancellation_policy is null) 				    as cancellation_policy_nulls
-	,sum(room_type is null) 						          as room_type_nulls
-	,sum(Construction_year is null) 				      as Construction_year_nulls
-	,sum(price is null) 							            as price_nulls
-	,sum(service_fee is null) 						        as service_fee_nulls
-	,sum(minimum_nights is null) 					        as minimum_nights_nulls
-	,sum(number_of_reviews is null) 				      as number_of_reviews_nulls
-	,sum(last_review is null) 						        as last_review_nulls
-	,sum(reviews_per_month is null) 				      as reviews_per_month_nulls
-	,sum(review_rate_number is null) 				      as review_rate_number_nulls
-	,sum(calculated_host_listings_count is null) 	as calculated_host_listings_count_nulls
-	,sum(availability_365 is null) 					      as availability_365_nulls
+	sum(id is null) 					as id_nulls
+	,sum(host_id  is null) 					as host_id_nulls
+	,sum(host_identity_verified is null) 			as host_identity_verified_nulls
+	,sum(host_name is null) 				as host_name_nulls
+	,sum(neighbourhood_group is null) 			as neighbourhood_group_nulls
+	,sum(neighbourhood is null) 				as neighbourhood_nulls
+	,sum(lat is null) 					as lat_nulls
+	,sum(`long` is null) 					as long_nulls
+	,sum(instant_bookable is null) 				as instant_bookable_nulls
+	,sum(cancellation_policy is null) 			as cancellation_policy_nulls
+	,sum(room_type is null) 				as room_type_nulls
+	,sum(Construction_year is null) 			as Construction_year_nulls
+	,sum(price is null) 					as price_nulls
+	,sum(service_fee is null) 				as service_fee_nulls
+	,sum(minimum_nights is null) 				as minimum_nights_nulls
+	,sum(number_of_reviews is null) 			as number_of_reviews_nulls
+	,sum(last_review is null) 				as last_review_nulls
+	,sum(reviews_per_month is null) 			as reviews_per_month_nulls
+	,sum(review_rate_number is null) 			as review_rate_number_nulls
+	,sum(calculated_host_listings_count is null) 		as calculated_host_listings_count_nulls
+	,sum(availability_365 is null) 				as availability_365_nulls
 from airbnb_open_data_work;
 
 select 
-	(sum(host_identity_verified is null) / 102058	) * 100				      as host_identity_verified_percent_nulls
-	,(sum(host_name is null) / 102058	) * 100							            as host_name_percent_nulls
-	,(sum(neighbourhood_group is null) / 102058	) * 100					      as neighbourhood_group_percent_nulls
-	,(sum(neighbourhood is null) / 102058	) * 100						          as neighbourhood_percent_nulls
-	,(sum(lat is null) / 102058	) * 100									              as lat_percent_nulls
-	,(sum(`long` is null) / 102058	) * 100								            as long_percent_nulls
-	,(sum(instant_bookable is null) / 102058	) * 100					        as instant_bookable_percent_nulls
-	,(sum(cancellation_policy is null) / 102058	) * 100					      as cancellation_policy_percent_nulls
-	,(sum(Construction_year is null) / 102058	) * 100					        as Construction_year_percent_nulls
-	,(sum(price is null) / 102058	) * 100								              as price_percent_nulls
-	,(sum(service_fee is null) / 102058	) * 100							          as service_fee_percent_nulls
-	,(sum(minimum_nights is null) / 102058	) * 100						        as minimum_nights_percent_nulls
-	,(sum(number_of_reviews is null) / 102058	) * 100				        	as number_of_reviews_percent_nulls
-	,(sum(last_review is null) / 102058	) * 100							          as last_review_percent_nulls
-	,(sum(reviews_per_month is null) / 102058	) * 100					        as reviews_per_month_percent_nulls
-	,(sum(review_rate_number is null) / 102058	) * 100					      as review_rate_number_percent_nulls
+	(sum(host_identity_verified is null) / 102058	) * 100			as host_identity_verified_percent_nulls
+	,(sum(host_name is null) / 102058	) * 100				as host_name_percent_nulls
+	,(sum(neighbourhood_group is null) / 102058	) * 100			as neighbourhood_group_percent_nulls
+	,(sum(neighbourhood is null) / 102058	) * 100				as neighbourhood_percent_nulls
+	,(sum(lat is null) / 102058	) * 100					as lat_percent_nulls
+	,(sum(`long` is null) / 102058	) * 100					as long_percent_nulls
+	,(sum(instant_bookable is null) / 102058	) * 100			as instant_bookable_percent_nulls
+	,(sum(cancellation_policy is null) / 102058	) * 100			as cancellation_policy_percent_nulls
+	,(sum(Construction_year is null) / 102058	) * 100			as Construction_year_percent_nulls
+	,(sum(price is null) / 102058	) * 100					as price_percent_nulls
+	,(sum(service_fee is null) / 102058	) * 100				as service_fee_percent_nulls
+	,(sum(minimum_nights is null) / 102058	) * 100				as minimum_nights_percent_nulls
+	,(sum(number_of_reviews is null) / 102058	) * 100			as number_of_reviews_percent_nulls
+	,(sum(last_review is null) / 102058	) * 100				as last_review_percent_nulls
+	,(sum(reviews_per_month is null) / 102058	) * 100			as reviews_per_month_percent_nulls
+	,(sum(review_rate_number is null) / 102058	) * 100			as review_rate_number_percent_nulls
 	,(sum(calculated_host_listings_count is null) / 102058	) * 100		as calculated_host_listings_count_percent_nulls
-	,(sum(availability_365 is null) / 102058	) * 100					        as availability_365_percent_nulls
+	,(sum(availability_365 is null) / 102058	) * 100			as availability_365_percent_nulls
 from airbnb_open_data_work;
 
 select
