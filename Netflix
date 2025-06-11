@@ -25,17 +25,17 @@ FROM netflix1_stagging;
 -- 1. 3.
 
 SELECT
-  sum(show_id IS NULL) 		    AS show_id_nulls
-	,sum('type' IS NULL) 		    AS type_nulls
-  ,sum(title IS NULL) 		    AS title_nulls
-  ,sum(director IS NULL) 		  AS director_nulls
-  ,sum(cast IS NULL) 			    AS cast_nulls
-  ,sum(country IS NULL) 		  AS country_nulls
-  ,sum(date_added IS NULL) 	  AS date_added_nulls
+  sum(show_id IS NULL) 		AS show_id_nulls
+  ,sum('type' IS NULL) 		AS type_nulls
+  ,sum(title IS NULL) 		AS title_nulls
+  ,sum(director IS NULL) 	AS director_nulls
+  ,sum(cast IS NULL) 		AS cast_nulls
+  ,sum(country IS NULL) 	AS country_nulls
+  ,sum(date_added IS NULL) 	AS date_added_nulls
   ,sum(release_year IS NULL) 	AS release_year_nulls
-  ,sum(rating IS NULL) 		    AS rating_nulls
-  ,sum(duration IS NULL) 	  	AS duration_nulls
-  ,sum(listed_in IS NULL) 	  AS listed_in_nulls
+  ,sum(rating IS NULL) 		AS rating_nulls
+  ,sum(duration IS NULL) 	AS duration_nulls
+  ,sum(listed_in IS NULL) 	AS listed_in_nulls
   ,sum(description IS NULL) 	AS description_nulls
 FROM netflix1_stagging;
 
