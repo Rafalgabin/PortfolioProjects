@@ -40,7 +40,7 @@
 *Review the SQL Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Supermarket_Sales)**<br />
 
 
-![Supermarket Sales Dashboard](visuals/Supermarket_sales1.png)
+![Supermarket Sales Dashboard](visuals/Supermarket%20sales1.png)
 
 
 
