@@ -18,8 +18,8 @@
 
 
 
-  - NewYork Airbnb Open Data Dataset Analysis Project <br />
-  - Data Cleaning and Data Exploration <br />
+  - NewYork Airbnb Open Data Dataset Analysis Project<br />
+  - Data Cleaning and Data Exploration<br />
     *Review the SQL Script:* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Airbnb_Open_DataProject)**<br />
     *Additional information regarding dataset and conclusions:* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Airbnb%20Open%20Data%20readme)**<br />
 
