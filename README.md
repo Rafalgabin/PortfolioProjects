@@ -18,10 +18,6 @@
 
 
 
-
-
-
-
   - NewYork Airbnb Open Data Dataset Analysis Project<br />
   - Data Cleaning and Data Exploration<br />
     *Review the SQL Script:* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Airbnb_Open_DataProject)**<br />
@@ -38,7 +34,7 @@
 
 
 ![Supermarket Sales Dashboard](visuals/Supermarket%20sales1.png)
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 - [x] **Python, SQL & Power Bi** -
@@ -50,7 +46,7 @@
 
 
 ![HR Employee Attrition Dashboard](visuals/HR%20Employee%20Attrition1.png)
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 - [x] **Excel** -   
