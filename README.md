@@ -8,9 +8,8 @@
 
 
 - [x] **SQL & Power Bi** -
-
   - Netflix Data Analysis Project<br />
-  - Data Cleaning and Data Exploration <br />
+  - Data Cleaning and Data Exploration<br />
     *Review the SQL Script:* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Netflix)**<br />
     *Additional information regarding dataset and conclusions:* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Netflix%20readme)**<br />
 
