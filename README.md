@@ -40,16 +40,26 @@
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-- [x] **Python, SQL & Power Bi** -
+- [x] **SQL, Python & Power Bi** -
 
   - HR Employee Attrition Dataset Analysis Project <br />
-  - Data Cleaning and Data Exploration <br />
+  - Data Cleaning <br />
     *Review the SQL Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/HR%20Employee%20Attrition)**<br />
+  - Data Exploration <br />
     *Review the Python Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/HR%20Employee%20Attrition%20Python.ipynb)**<br />
 
 
 ![HR Employee Attrition Dashboard](visuals/HR%20Employee%20Attrition1.png)
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+  - Vehicle Sales in US Dataset Analysis Project <br />
+  - Data Cleaning <br />
+    *Review the SQL Script*
+  - Data Exploration <br />
+    *Review the Python Script*
+     Work in progress
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
