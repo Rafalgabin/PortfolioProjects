@@ -4,51 +4,56 @@
 -- 4. Drop unneeded columns
 -- 5. Split columns
 
-SELECT * FROM netflix1.netflix1;
+SELECT 
+  * 
+FROM netflix1.netflix1
+LIMIT 10;
 
 CREATE TABLE netflix1_stagging
 LIKE netflix1;
 
 SELECT
-	*
-FROM netflix1_stagging;
+  *
+FROM netflix1_stagging
+LIMIT 10;
 
 INSERT netflix1_stagging
 SELECT	
-	*
+  *
 FROM netflix1;
 
 SELECT
-	*
+  *
 FROM netflix1_stagging;
 
 -- 1. 3.
 
 SELECT
-  sum(show_id IS NULL) 		AS show_id_nulls
-  ,sum('type' IS NULL) 		AS type_nulls
-  ,sum(title IS NULL) 		AS title_nulls
-  ,sum(director IS NULL) 	AS director_nulls
-  ,sum(cast IS NULL) 		AS cast_nulls
-  ,sum(country IS NULL) 	AS country_nulls
-  ,sum(date_added IS NULL) 	AS date_added_nulls
-  ,sum(release_year IS NULL) 	AS release_year_nulls
-  ,sum(rating IS NULL) 		AS rating_nulls
-  ,sum(duration IS NULL) 	AS duration_nulls
-  ,sum(listed_in IS NULL) 	AS listed_in_nulls
-  ,sum(description IS NULL) 	AS description_nulls
+  COUNT(*) 		AS total_rows,
+  COUNT(show_id)        AS show_id_nonnull,
+  COUNT(type)           AS type_nonnull,
+  COUNT(title)          AS title_nonnull,
+  COUNT(director)       AS director_nonnull,
+  COUNT(cast)           AS cast_nonnull,
+  COUNT(country)        AS country_nonnull,
+  COUNT(date_added)     AS date_added_nonnull,
+  COUNT(release_year)   AS release_year_nonnull,
+  COUNT(rating)         AS rating_nonnull,
+  COUNT(duration)       AS duration_nonnull,
+  COUNT(listed_in)      AS listed_in_nonnull,
+  COUNT(description)    AS description_nonnull
 FROM netflix1_stagging;
 
 -- We have nulls in couple columns, lets treat them.
 
-select
-	*
+SELECT
+  *
 FROM netflix1_stagging
-WHERE director IS NULL;
+WHERE director IS NULL
+LIMIT 10;
 
--- Number of nulls in director column is large, I will populate it with use of cast column (just for training purposes and later for use in visualisations) even if I think populating it with use of cast column will make the results misleading.
--- The rest nulls I will change to 'Not Given'.
-
+-- Number of nulls in director column is large, I will populate it with use of cast column (just for training purposes and later for use in visualisations) 
+-- even if I think populating it with use of cast column will make the results misleading. The rest nulls I will change to 'Not Given'.
 
 SELECT 
   n1.title AS title_with_null_director
@@ -62,7 +67,7 @@ WHERE n1.director IS NULL
   AND n2.director IS NOT NULL;
     
 SELECT
-	*
+  *
 FROM netflix1_stagging
 WHERE title = 'Adhugo';
 
@@ -73,19 +78,15 @@ SET n1.director = n2.director
 WHERE n1.director IS NULL
   AND n2.director IS NOT NULL;
     
-SELECT
-	*
-FROM netflix1_stagging
-WHERE director IS NULL;
-
 UPDATE netflix1_stagging
 SET director = 'Not Given'
 WHERE director IS NULL;
 
 SELECT
-	*
+  *
 FROM netflix1_stagging
-WHERE country IS NULL;
+WHERE country IS NULL
+LIMIT 10;
 
 -- Similar action I will do with country column but based on director column.
 
@@ -107,21 +108,22 @@ SET n1.country = n2.country
 WHERE n1.country IS NULL
   AND n2.coutry IS NOT NULL;
 
-SELECT
-	*
-FROM netflix1_stagging
-WHERE cast IS NULL;
-
-UPDATE netflix1_stagging
-SET cast = 'Not Given'
-WHERE cast IS NULL;
-
 UPDATE netflix1_stagging 
 SET country = 'Not Given'
 WHERE country IS NULL;
 
 SELECT
-	*
+  *
+FROM netflix1_stagging
+WHERE cast IS NULL
+LIMIT 10;
+
+UPDATE netflix1_stagging
+SET cast = 'Not Given'
+WHERE cast IS NULL;
+
+SELECT
+  *
 FROM netflix1_stagging
 WHERE date_added IS NULL;
 
@@ -130,18 +132,20 @@ FROM netflix1_stagging
 WHERE show_id IN ('s6067', 's6175', 's6796', 's6807', 's6902', 's7197', 's7255', 's7407', 's7848', 's8183');
 
 SELECT
-	*
+  *
 FROM netflix1_stagging
-WHERE rating IS NULL;
+WHERE rating IS NULL
+LIMIT 10;
 
 UPDATE netflix1_stagging 
 SET rating = 'Unknown'
 WHERE rating IS NULL;
 
 SELECT
-	*
+  *
 FROM netflix1_stagging
-WHERE duration IS NULL;
+WHERE duration IS NULL
+LIMIT 10;
 
 UPDATE netflix1_stagging 
 SET duration = 'Unknown'
@@ -150,31 +154,32 @@ WHERE duration IS NULL;
 -- 2.
 
 SELECT
-	*
-FROM netflix1_stagging;
+  *
+FROM netflix1_stagging
+LIMIT 10;
 
 SELECT
-	show_id
+  show_id
   ,ROW_NUMBER() OVER(PARTITION BY show_id)   AS row_num
 FROM netflix1_stagging;
 
 SELECT
-	title
+  title
   ,ROW_NUMBER() OVER(PARTITION BY title)     AS row_num
 FROM netflix1_stagging;
 
 SELECT
-	*
+  *
 FROM netflix1_stagging
 WHERE title LIKE 'Ar__';
 
 SELECT
-	*
+  *
 FROM netflix1_stagging
 WHERE title = 'DEATH NOTE';
 
 SELECT
-	*
+  *
 FROM netflix1_stagging
 WHERE title = 'Esperando La Carroza';
 
@@ -183,7 +188,7 @@ FROM netflix1_stagging
 WHERE show_id = 's304';
 
 SELECT
-	*
+  *
 FROM netflix1_stagging
 WHERE title IN ('FullMetal Alchemist', 'Love in a Puff', 'Sin senos sí hay paraíso', 'Verónica')
 ORDER BY title;
@@ -195,17 +200,14 @@ WHERE show_id IN ('s160', 's1271');
 -- 4. 
 
 SELECT
-	*
-FROM netflix1_stagging;
+  *
+FROM netflix1_stagging
+LIMIT 10;
 
 -- Column description is not needed for me.
 
 ALTER TABLE netflix1_stagging
-DROP COLUMN	description;
-
-SELECT
-	*
-FROM netflix1_stagging;
+DROP COLUMN description;
 
 ALTER TABLE netflix1_stagging
 RENAME COLUMN listed_in TO Genre; 
@@ -214,8 +216,8 @@ RENAME COLUMN listed_in TO Genre;
 -- Change date_added column, it was a string type and contains date.
 
 SELECT
-	date_added
-	,STR_TO_DATE(date_added, '%M %d, %Y') AS newdate
+  date_added
+  ,STR_TO_DATE(date_added, '%M %d, %Y') AS newdate
 FROM netflix1_stagging;
 
 UPDATE netflix1_stagging
@@ -227,7 +229,7 @@ MODIFY COLUMN date_added DATE;
 -- 4. Some rows in country column has multiple countries I need one country to make visualization clean. I will split country column and keep first country which would be the original country I presume.
 
 SELECT 
-	*
+  *
   ,SUBSTRING_INDEX(country, ',', 1) AS country1
 FROM netflix1_stagging;
 
@@ -238,8 +240,9 @@ UPDATE netflix1_stagging
 SET country1 = SUBSTRING_INDEX(country, ',', 1);
 
 SELECT 
-	country1
-FROM netflix1_stagging;
+  country1
+FROM netflix1_stagging
+LIMIT 10;
 
 ALTER TABLE netflix1_stagging
 DROP COLUMN country;
@@ -248,11 +251,7 @@ ALTER TABLE netflix1_stagging
 RENAME COLUMN country1 TO country;
 
 SELECT 
-	*
-FROM netflix1_stagging;
-
-SELECT 
-	*
+  *
   ,SUBSTRING_INDEX(Genre, ',', 1) AS Genre1
 FROM netflix1_stagging;
 
@@ -267,7 +266,7 @@ UPDATE netflix1_stagging
 SET Genre1 = SUBSTRING_INDEX(Genre, ',', 1);
 
 SELECT 
-	Genre1
+  Genre1
 FROM netflix1_stagging
 limit 10;
 
@@ -278,11 +277,7 @@ ALTER TABLE netflix1_stagging
 RENAME COLUMN Genre1 TO genre;
 
 SELECT
-	*
-FROM netflix1_stagging;
-
-SELECT
-	distinct(genre)
+  distinct(genre)
 FROM netflix1_stagging;
 
 -- Additionally I wll create another table with information how many appearances had each actor from cast column.
@@ -337,5 +332,5 @@ GROUP BY actor
 ORDER BY appearances DESC;
 
 SELECT
-	SUM(appearances <> 'Not Given')		as known_appearances
+  SUM(appearances <> 'Not Given')		as known_appearances
 FROM actor_appearances;
