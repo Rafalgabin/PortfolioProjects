@@ -1,7 +1,7 @@
 select
 	*
 from airbnb_open_data.airbnb_open_data
-limit 200;
+limit 20;
 
 select
 	count(*)
@@ -18,7 +18,7 @@ from airbnb_open_data;
 select
 	*
 from airbnb_open_data_work
-limit 200;
+limit 20;
 
 select
 	count(*)
@@ -69,32 +69,33 @@ alter table airbnb_open_data_work
 rename column `availability 365` to availability_365;
 
 select
-	sum(id is null) 					as id_nulls
-	,sum(NAME is null) 					as NAME_nulls
-	,sum(host_id  is null) 					as host_id_nulls
-	,sum(host_identity_verified is null) 		    	as host_identity_verified_nulls
-	,sum(host_name is null) 				as host_name_nulls
-	,sum(neighbourhood_group is null) 			as neighbourhood_group_nulls
-	,sum(neighbourhood is null) 				as neighbourhood_nulls
-	,sum(lat is null) 					as lat_nulls
-	,sum(`long` is null) 					as long_nulls
-	,sum(country is null) 					as country_nulls
-	,sum(country_code is null) 				as country_code_nulls
-	,sum(instant_bookable is null) 				as instant_bookable_nulls
-	,sum(cancellation_policy is null) 			as cancellation_policy_nulls
-	,sum(room_type is null) 				as room_type_nulls
-	,sum(Construction_year is null) 			as Construction_year_nulls
-	,sum(price is null) 					as price_nulls
-	,sum(service_fee is null) 				as service_fee_nulls
-	,sum(minimum_nights is null) 				as minimum_nights_nulls
-	,sum(number_of_reviews is null) 			as number_of_reviews_nulls
-	,sum(last_review is null) 				as last_review_nulls
-	,sum(reviews_per_month is null) 			as reviews_per_month_nulls
-	,sum(review_rate_number is null) 			as review_rate_number_nulls
-	,sum(calculated_host_listings_count is null) 		as calculated_host_listings_count_nulls
-	,sum(availability_365 is null) 				as availability_365_nulls
-	,sum(house_rules is null) 				as house_rules_nulls
-	,sum(license is null) 					as license_nulls
+	count(*) 					as total_rows
+  	,count(id)       				as id_nonnull
+	,count(NAME) 					as NAME_nonnull
+	,count(host_id) 				as host_id_nonnull
+	,count(host_identity_verified) 		    	as host_identity_verified_nonnull
+	,count(host_name) 				as host_name_nonnull
+	,count(neighbourhood_group) 			as neighbourhood_group_nonnull
+	,count(neighbourhood) 				as neighbourhood_nonnull
+	,count(lat) 					as lat_nonnull
+	,count(`long`) 					as long_nonnull
+	,count(country) 				as country_nonnull
+	,count(country_code) 				as country_code_nonnull
+	,count(instant_bookable) 			as instant_bookable_nonnull
+	,count(cancellation_policy) 			as cancellation_policy_nonnull
+	,count(room_type) 				as room_type_nonnull
+	,count(Construction_year) 			as Construction_year_nonnull
+	,count(price) 					as price_nonnull
+	,count(service_fee) 				as service_fee_nonnull
+	,count(minimum_nights) 				as minimum_nights_nonnull
+	,count(number_of_reviews) 			as number_of_reviews_nonnull
+	,count(last_review) 				as last_review_nonnull
+	,count(reviews_per_month) 			as reviews_per_month_nonnull
+	,count(review_rate_number) 			as review_rate_number_nonnull
+	,count(calculated_host_listings_count) 		as calculated_host_listings_count_nonnull
+	,count(availability_365) 			as availability_365_nonnull
+	,count(house_rules) 				as house_rules_nonnull
+	,count(license) 				as license_nonnull
 from airbnb_open_data_work;
 
 select
@@ -105,13 +106,14 @@ select
 	id
 from airbnb_open_data_work
 order by id
+limit 20;
 
 select
 	*
 from airbnb_open_data_work
 where id = '1001254'
 
-SELECT
+select
 	*
   ,row_number() over(partition by id)     as row_num
 from airbnb_open_data_work;
@@ -119,10 +121,6 @@ from airbnb_open_data_work;
 create table airbnb_open_data_work2
 select distinct *
 from airbnb_open_data_work;
-
-select
-	*
-from airbnb_open_data_work2;
 
 select 
 	count(distinct id)
@@ -133,61 +131,6 @@ srop table airbnb_open_data_work;
 alter table airbnb_open_data_work2
 rename to airbnb_open_data_work;
 
-select
-	sum(id is null) 					as id_nulls
-	,sum(NAME is null) 					as NAME_nulls
-	,sum(host_id  is null) 					as host_id_nulls
-	,sum(host_identity_verified is null) 		    	as host_identity_verified_nulls
-	,sum(host_name is null) 				as host_name_nulls
-	,sum(neighbourhood_group is null) 			as neighbourhood_group_nulls
-	,sum(neighbourhood is null) 				as neighbourhood_nulls
-	,sum(lat is null) 					as lat_nulls
-	,sum(`long` is null) 					as long_nulls
-	,sum(country is null) 					as country_nulls
-	,sum(country_code is null) 				as country_code_nulls
-	,sum(instant_bookable is null) 				as instant_bookable_nulls
-	,sum(cancellation_policy is null) 			as cancellation_policy_nulls
-	,sum(room_type is null) 				as room_type_nulls
-	,sum(Construction_year is null) 			as Construction_year_nulls
-	,sum(price is null) 					as price_nulls
-	,sum(service_fee is null) 				as service_fee_nulls
-	,sum(minimum_nights is null) 				as minimum_nights_nulls
-	,sum(number_of_reviews is null) 			as number_of_reviews_nulls
-	,sum(last_review is null) 				as last_review_nulls
-	,sum(reviews_per_month is null) 			as reviews_per_month_nulls
-	,sum(review_rate_number is null) 			as review_rate_number_nulls
-	,sum(calculated_host_listings_count is null) 		as calculated_host_listings_count_nulls
-	,sum(availability_365 is null) 				as availability_365_nulls
-	,sum(house_rules is null) 				as house_rules_nulls
-	,sum(license is null) 					as license_nulls
-from airbnb_open_data_work;
-
-select
-	(sum(NAME is null) / 102058	) * 100					as NAME_percent_nulls
-	,(sum(host_identity_verified is null) / 102058	) * 100			as host_identity_verified_percent_nulls
-	,(sum(host_name is null) / 102058	) * 100				as host_name_percent_nulls
-	,(sum(neighbourhood_group is null) / 102058	) * 100			as neighbourhood_group_percent_nulls
-	,(sum(neighbourhood is null) / 102058	) * 100				as neighbourhood_percent_nulls
-	,(sum(lat is null) / 102058	) * 100					as lat_percent_nulls
-	,(sum(`long` is null) / 102058	) * 100					as long_percent_nulls
-	,(sum(country is null) / 102058	) * 100					as country_percent_nulls
-	,(sum(country_code is null) / 102058	) * 100				as country_code_percent_nulls
-	,(sum(instant_bookable is null) / 102058	) * 100			as instant_bookable_percent_nulls
-	,(sum(cancellation_policy is null) / 102058	) * 100			as cancellation_policy_percent_nulls
-	,(sum(Construction_year is null) / 102058	) * 100			as Construction_year_percent_nulls
-	,(sum(price is null) / 102058	) * 100					as price_percent_nulls
-	,(sum(service_fee is null) / 102058	) * 100				as service_fee_percent_nulls
-	,(sum(minimum_nights is null) / 102058	) * 100				as minimum_nights_percent_nulls
-	,(sum(number_of_reviews is null) / 102058	) * 100			as number_of_reviews_percent_nulls
-	,(sum(last_review is null) / 102058	) * 100				as last_review_percent_nulls
-	,(sum(reviews_per_month is null) / 102058	) * 100			as reviews_per_month_percent_nulls
-	,(sum(review_rate_number is null) / 102058	) * 100			as review_rate_number_percent_nulls
-	,(sum(calculated_host_listings_count is null) / 102058	) * 100		as calculated_host_listings_count_percent_nulls
-	,(sum(availability_365 is null) / 102058	) * 100			as availability_365_percent_nulls
-	,(sum(house_rules is null) / 102058	) * 100				as house_rules_percent_nulls
-	,(sum(license is null) / 102058	) * 100					as license_percent_nulls
-from airbnb_open_data_work;
-
 select 
 	distinct license
 from airbnb_open_data_work;
@@ -196,11 +139,12 @@ alter table airbnb_open_data_work
 drop column license;
 
 with duplicate_cte as
-(select
+(
+select
 	*
-    ,row_number() over(
-    partition by host_id) as row_num
+    	,row_number() over(partition by host_id) as row_num
 from airbnb_open_data_work)
+
 select
 	*
 from duplicate_cte
@@ -252,7 +196,8 @@ group by instant_bookable;
 select
 	*
 from airbnb_open_data_work
-where instant_bookable = 'FALSE';
+where instant_bookable = 'FALSE'
+limit 20;
 
 update airbnb_open_data_work
 set instant_bookable = 'No'
@@ -261,7 +206,8 @@ where instant_bookable = 'FALSE';
 select
 	*
 from airbnb_open_data_work
-where instant_bookable = 'TRUE';
+where instant_bookable = 'TRUE'
+limit 20;
 
 update airbnb_open_data_work
 set instant_bookable = 'Yes'
@@ -280,7 +226,8 @@ set price = replace(price, '$', '');
 select
 	price
 from airbnb_open_data_work
-where price is null;
+where price is null
+limit20;
 
 update airbnb_open_data_work
 set price = '0'
@@ -304,7 +251,8 @@ modify service_fee int;
 
 select last_review
 	,str_to_date(last_review, '%m/%d/%Y')
-from airbnb_open_data_work;
+from airbnb_open_data_work
+limit 20;
 
 update airbnb_open_data_work
 set last_review = str_to_date(last_review, '%m/%d/%Y');
@@ -329,11 +277,6 @@ where neighbourhood_group ='manhatan';
 update airbnb_open_data_work
 set neighbourhood_group = 'Brooklyn'
 where neighbourhood_group ='brookln';
-
-select 
-	*
-from airbnb_open_data_work
-where neighbourhood_group is null;
 
 update airbnb_open_data_work
 set neighbourhood_group = 'Manhattan'
@@ -402,7 +345,8 @@ where neighbourhood ='Upper West Side'
 select 
 	*
 from airbnb_open_data_work
-where neighbourhood is null;
+where neighbourhood is null
+limit 20;
 
 update airbnb_open_data_work
 set neighbourhood = 'Flatiron'
@@ -494,7 +438,8 @@ rename to airbnb_open_data_work;
 select 
 	*
 from airbnb_open_data_work
-order by id;
+order by id
+limit 20;
 
 update airbnb_open_data_work
 set host_name = 'Unknown'
@@ -506,13 +451,6 @@ where minimum_nights like '-%';
 
 select 
 	distinct minimum_nights
-from airbnb_open_data_work;
-
-select 
-	max(lat)
-	,min(lat) 
-	,max(`long`)
-	,min(`long`) 
 from airbnb_open_data_work;
 
 update airbnb_open_data_work
@@ -554,22 +492,25 @@ where neighbourhood ='Bay Terrace, Staten Island';
 select
 	lat
   ,trim(lat)
-from airbnb_open_data_work;
+from airbnb_open_data_work
+limit 10;
 
 update airbnb_open_data_work
-set	lat = trim(lat);
+set lat = trim(lat);
 
 select
 	`long`
   ,trim(`long`)
-from airbnb_open_data_work;
+from airbnb_open_data_work
+limit 10;
 
 update airbnb_open_data_work
-set	`long` = trim(`long`);
+set `long` = trim(`long`);
 
 select
 	concat(upper(left(cancellation_policy, 1)), substring(cancellation_policy, 2))
-from airbnb_open_data_work;
+from airbnb_open_data_work
+limit 10;
 
 update airbnb_open_data_work
 set cancellation_policy = concat(upper(left(cancellation_policy, 1)), substring(cancellation_policy, 2));
@@ -618,28 +559,11 @@ select
 	,min(availability_365)
 from airbnb_open_data_work;
 
-select 
-	distinct availability_365
-from airbnb_open_data_work
-order by availability_365;
-
 /* availability_365 column says how many days annually is the airbnb avaible, in this case all negative values I will change to 0 and all above 365 to 365. */
-
-select 
-	availability_365
-from airbnb_open_data_work
-where availability_365 < 0
-group by availability_365; 
 
 update airbnb_open_data_work
 set availability_365 = '0'
 where availability_365 < 0;
-
-select 
-	availability_365
-from airbnb_open_data_work
-where availability_365 > 365
-group by availability_365;
 
 update airbnb_open_data_work
 set availability_365 = '365'
@@ -663,62 +587,12 @@ group by calculated_host_listings_count;
 
 /*/////////////////////////////////////////////////////////*/
 
-select 
-	sum(id is null) 					as id_nulls
-	,sum(host_id  is null) 					as host_id_nulls
-	,sum(host_identity_verified is null) 			as host_identity_verified_nulls
-	,sum(host_name is null) 				as host_name_nulls
-	,sum(neighbourhood_group is null) 			as neighbourhood_group_nulls
-	,sum(neighbourhood is null) 				as neighbourhood_nulls
-	,sum(lat is null) 					as lat_nulls
-	,sum(`long` is null) 					as long_nulls
-	,sum(instant_bookable is null) 				as instant_bookable_nulls
-	,sum(cancellation_policy is null) 			as cancellation_policy_nulls
-	,sum(room_type is null) 				as room_type_nulls
-	,sum(Construction_year is null) 			as Construction_year_nulls
-	,sum(price is null) 					as price_nulls
-	,sum(service_fee is null) 				as service_fee_nulls
-	,sum(minimum_nights is null) 				as minimum_nights_nulls
-	,sum(number_of_reviews is null) 			as number_of_reviews_nulls
-	,sum(last_review is null) 				as last_review_nulls
-	,sum(reviews_per_month is null) 			as reviews_per_month_nulls
-	,sum(review_rate_number is null) 			as review_rate_number_nulls
-	,sum(calculated_host_listings_count is null) 		as calculated_host_listings_count_nulls
-	,sum(availability_365 is null) 				as availability_365_nulls
-from airbnb_open_data_work;
-
-select 
-	(sum(host_identity_verified is null) / 102058	) * 100			as host_identity_verified_percent_nulls
-	,(sum(host_name is null) / 102058	) * 100				as host_name_percent_nulls
-	,(sum(neighbourhood_group is null) / 102058	) * 100			as neighbourhood_group_percent_nulls
-	,(sum(neighbourhood is null) / 102058	) * 100				as neighbourhood_percent_nulls
-	,(sum(lat is null) / 102058	) * 100					as lat_percent_nulls
-	,(sum(`long` is null) / 102058	) * 100					as long_percent_nulls
-	,(sum(instant_bookable is null) / 102058	) * 100			as instant_bookable_percent_nulls
-	,(sum(cancellation_policy is null) / 102058	) * 100			as cancellation_policy_percent_nulls
-	,(sum(Construction_year is null) / 102058	) * 100			as Construction_year_percent_nulls
-	,(sum(price is null) / 102058	) * 100					as price_percent_nulls
-	,(sum(service_fee is null) / 102058	) * 100				as service_fee_percent_nulls
-	,(sum(minimum_nights is null) / 102058	) * 100				as minimum_nights_percent_nulls
-	,(sum(number_of_reviews is null) / 102058	) * 100			as number_of_reviews_percent_nulls
-	,(sum(last_review is null) / 102058	) * 100				as last_review_percent_nulls
-	,(sum(reviews_per_month is null) / 102058	) * 100			as reviews_per_month_percent_nulls
-	,(sum(review_rate_number is null) / 102058	) * 100			as review_rate_number_percent_nulls
-	,(sum(calculated_host_listings_count is null) / 102058	) * 100		as calculated_host_listings_count_percent_nulls
-	,(sum(availability_365 is null) / 102058	) * 100			as availability_365_percent_nulls
-from airbnb_open_data_work;
-
 select
 	*
 from airbnb_open_data_work
 where lat is null and `long` is null;
 
-/* There a few missing postion values missing(lat & long columns), I will populate them by using average position from respective neighbourhoods. */
-
-select 
-	*
-from airbnb_open_data_work
-where neighbourhood = 'Upper West Side';
+/* There a few missing position values missing (lat & long columns), I will populate them by using average position from respective neighbourhoods. */
 
 select
 	avg(lat)
@@ -734,11 +608,6 @@ update airbnb_open_data_work
 set `long` = -73.97324
 where neighbourhood = 'Upper West Side' and `long` is null;
 
-select 
-	*
-from airbnb_open_data_work
-where neighbourhood = 'Flatiron District';
-	
 select
 	avg(lat)
 	,avg(`long`)
