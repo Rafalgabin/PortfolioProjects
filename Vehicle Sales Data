@@ -1,0 +1,829 @@
+SELECT
+	*
+FROM car_sales
+LIMIT 10;
+
+SELECT
+  COUNT(*) 				      AS total_rows,
+  COUNT(year_made) 	  	AS year_made_nonnull,
+  COUNT(maker) 			    AS maker_nonnull,
+  COUNT(model) 			    AS model_nonnull,
+  COUNT("trim") 		  	AS trim_nonnull,
+  COUNT(body) 			    AS body_nonnull,
+  COUNT(transmission) 	AS transmission_nonnull,
+  COUNT(vin) 				    AS vin_nonnull,
+  COUNT("state") 		  	AS state_nonnull,
+  COUNT("condition") 		AS condition_nonnull,
+  COUNT(odometer_miles) AS odometer_miles_nonnull,
+  COUNT(color) 			    AS color_nonnull,
+  COUNT(interior) 		  AS interior_nonnull,
+  COUNT(seller) 		  	AS seller_nonnull,
+  COUNT(mmr) 			    	AS mmr_nonnull,
+  COUNT(selling_price) 	AS selling_price_nonnull,
+  COUNT(sale_time) 		  AS sale_time_nonnull,
+  COUNT(sale_date) 		  AS sale_date_nonnull
+FROM car_sales;
+
+SELECT 
+	DISTINCT year_made as distinct_year_made
+FROM car_sales;
+
+------------------------------maker column
+
+SELECT 
+	DISTINCT maker as distinct_marker
+FROM car_sales;
+
+UPDATE car_sales
+SET maker = INITCAP(maker)
+WHERE maker IS NOT NULL AND maker <> INITCAP(maker);
+
+UPDATE car_sales 
+SET maker = CASE
+	WHEN maker = 'Mazda tk' THEN 'Mazda'
+	WHEN maker = 'Mercedes-b' THEN 'Mercedes-Benz'
+	WHEN maker = 'vw' THEN 'Volkswagen'
+	WHEN maker = 'Landrover' THEN 'Land Rover'
+	WHEN maker = 'Hyundai tk' THEN 'Hyundai'
+	WHEN maker IN ('Gmc', 'Gmc truck') THEN 'GMC'
+	WHEN maker IN ('Ford tk', 'Ford truck') THEN 'Ford'
+	WHEN maker = 'Chev truck' THEN 'Chevrolet'
+	WHEN maker IN ('Dodge tk', 'dot') THEN 'Dodge'
+	WHEN maker = 'Bmw' THEN 'BMW'
+	ELSE maker
+END
+WHERE maker IN (
+	'Mazda tk', 'Mercedes-b','vw', 'Landrover', 'Hyundai tk', 'Gmc', 'Gmc truck'
+	,'Ford tk', 'Ford truck', 'Chev truck', 'Dodge tk', 'dot', 'Bmw' 
+);
+
+------------------------------model column
+
+SELECT 
+	DISTINCT model as distinct_model
+FROM car_sales;
+
+UPDATE car_sales
+SET model = INITCAP(model)
+WHERE model IS NOT NULL AND model <> INITCAP(model);
+
+UPDATE car_sales 
+SET model = CASE
+	WHEN model = '1' THEN '1 Series'
+	WHEN model = 'Hhr' THEN 'HHR'
+	WHEN model = 'Lacrosse' THEN 'LaCrosse'
+	WHEN model = 'Lr3' THEN 'LR3'
+	WHEN model = 'Mazdaspeed3' THEN 'Mazdaspeed 3'
+	WHEN model = 'Mdx' THEN 'MDX'
+	WHEN model = 'Mkt' THEN 'MKT'
+	WHEN model = 'Mpv' THEN 'MPV'
+	WHEN model = 'Rangerover' THEN 'Range Rover'
+	WHEN model = 'Rl' THEN 'RL'
+	WHEN model = 'Srx' THEN 'SRX'
+	WHEN model = 'Subrbn' THEN 'Suburban'
+	WHEN model = 'Tt' THEN 'TT'
+	WHEN model IN ('Twn&country', 'Twn/cntry') THEN 'Town and Country'
+	WHEN model IN ('Expedit', 'Expeditn') THEN 'Expedition'
+	WHEN model = 'Uplandr' THEN 'Uplander'
+	ELSE model
+END
+WHERE model IN (
+	'1', 'Hhr', 'Lacrosse', 'Lr3', 'Mazdaspeed3', 'Mdx', 'Mkt', 'Mpv'
+	,'Rangerover', 'Rl', 'Srx', 'Subrbn', 'Tt', 'Twn&country', 'Twn/cntry'
+	,'Uplandr', 'Expedit', 'Expeditn' 
+);
+
+SELECT
+	 COUNT(*)
+FROM car_sales
+WHERE maker IS NULL AND model IS NULL;
+
+------------------------------trim column
+
+SELECT 
+	DISTINCT "trim" as distinct_trim 
+FROM car_sales;
+
+UPDATE car_sales
+SET "trim" = INITCAP("trim")
+WHERE "trim" IS NOT NULL AND "trim" <> INITCAP("trim");
+
+SELECT
+	"trim"
+	,COUNT(DISTINCT "trim")
+FROM car_sales
+GROUP BY "trim"
+ORDER BY COUNT(DISTINCT "trim") DESC;
+
+UPDATE car_sales 
+SET "trim" = CASE
+	WHEN "trim" IN ('Warner Bros.', 'warner bro') THEN 'Warner Brothers'
+	WHEN "trim" = 'SE-V6 Dessert Runner' THEN 'SE-V6 Desert Runner'
+	ELSE "trim"
+END
+WHERE "trim" IN (
+	'Warner Bros.', 'warner bro', 'SE-V6 Dessert Runner' 
+);
+
+------------------------------body column
+
+SELECT 
+	DISTINCT body as distinct_body 
+FROM car_sales;
+
+UPDATE car_sales
+SET body =
+  LEFT(body, POSITION(' ' IN body)) || 
+  UPPER(SUBSTRING(body FROM POSITION(' ' IN body) + 1 FOR 1)) ||
+  SUBSTRING(body FROM POSITION(' ' IN body) + 2)
+WHERE body LIKE '% %';
+
+ALTER TABLE car_sales ADD COLUMN body_type_standard TEXT;
+
+UPDATE car_sales
+SET body_type_standard = CASE
+  WHEN body IN ('Sedan', 'G Sedan') THEN 'Sedan'
+  WHEN body = 'SUV' THEN 'SUV'
+  WHEN body = 'Hatchback' THEN 'Hatchback'
+  WHEN body = 'Minivan' THEN 'Minivan'
+  WHEN body IN ('Van', 'E-Series Van', 'Promaster Cargo Van', 'Transit Van', 'Ram Van') THEN 'Van'
+  WHEN body IN ('Coupe', 'G Coupe', 'Genesis Coupe', 'Koup', 'CTS Coupe', 'CTS-V Coupe', 'Elantra Coupe', 'Q60 Coupe', 'G37 Coupe') THEN 'Coupe'
+  WHEN body IN ('Convertible', 'G Convertible', 'Beetle Convertible', 'GranTurismo Convertible', 'Q60 Convertible', 'G37 Convertible') THEN 'Convertible'
+  WHEN body IN ('Wagon', 'CTS Wagon', 'TSX Sport Wagon', 'CTS-V Wagon') THEN 'Wagon'
+  WHEN body IN ('Crew Cab', 'SuperCrew', 'SuperCab', 'Regular Cab', 'Extended Cab', 'Quad Cab', 'Double Cab', 'CrewMax Cab', 'King Cab', 'Access Cab', 'Club Cab', 'Mega Cab', 'Cab Plus', 'Cab Plus 4', 'Xtracab') THEN 'Pickup Truck'
+	ELSE 'Other'
+END
+WHERE body_type_standard IS NULL;
+
+SELECT
+	body_type_standard
+	,COUNT (body_type_standard)
+FROM car_sales
+GROUP BY body_type_standard;
+
+ALTER TABLE car_sales
+DROP COLUMN body;
+
+ALTER TABLE car_sales
+RENAME COLUMN body_type_standard TO body;
+
+------------------------------transmission column
+
+SELECT 
+	DISTINCT transmission as distinct_transmission 
+FROM car_sales
+ORDER BY transmission;
+
+UPDATE car_sales
+SET transmission = INITCAP(transmission)
+WHERE transmission IS NOT NULL AND transmission <> INITCAP(transmission);
+
+------------------------------state column
+
+SELECT 
+	DISTINCT state as distinct_state 
+FROM car_sales
+ORDER BY "state";
+
+SELECT 
+	*
+FROM car_sales
+WHERE "state" LIKE '3vwd17aj%';
+
+UPDATE car_sales
+SET transmission = vin
+WHERE "state" LIKE '3vwd17aj%';
+
+UPDATE car_sales
+SET vin = "state"
+WHERE "state" LIKE '3vwd17aj%';
+
+UPDATE car_sales
+SET "condition" = odometer_miles
+WHERE "state" LIKE '3vwd17aj%';
+
+UPDATE car_sales
+SET odometer_miles = color
+WHERE "state" LIKE '3vwd17aj%';
+
+UPDATE car_sales
+SET odometer_miles = color::numeric
+WHERE color ~ '^[0-9]+(\.[0-9]+)?$';
+
+UPDATE car_sales
+SET color = interior
+WHERE "state" LIKE '3vwd17aj%';
+
+UPDATE car_sales
+SET interior = seller
+WHERE "state" LIKE '3vwd17aj%';
+
+UPDATE car_sales
+SET seller = NULL
+WHERE "state" LIKE '3vwd17aj%';
+
+UPDATE car_sales
+SET mmr = selling_price
+WHERE "state" LIKE '3vwd17aj%';
+
+UPDATE car_sales
+SET selling_price = NULL
+WHERE "state" LIKE '3vwd17aj%';
+
+UPDATE car_sales
+SET sale_time = sale_date
+WHERE "state" LIKE '3vwd17aj%';
+
+UPDATE car_sales
+SET sale_date = NULL
+WHERE "state" LIKE '3vwd17aj%';
+
+UPDATE car_sales
+SET "state" = NULL
+WHERE "state" LIKE '3vwd17aj%';
+
+UPDATE car_sales
+SET "state" = UPPER("state");
+
+------------------------------condition column
+
+SELECT 
+	DISTINCT "condition" as distinct_condition 
+FROM car_sales
+ORDER BY "condition";
+
+------------------------------odometer_miles column
+
+SELECT 
+	MAX(odometer_miles)
+	,MIN(odometer_miles)
+	,AVG (odometer_miles)
+FROM car_sales;
+
+------------------------------color column
+
+SELECT 
+	DISTINCT color as distinct_color 
+FROM car_sales
+ORDER BY color;
+
+SELECT 
+	COUNT(*) 
+FROM car_sales
+WHERE color = '—';
+
+UPDATE car_sales
+SET color = NULL
+WHERE color = '—';
+
+UPDATE car_sales
+SET color = INITCAP(color)
+WHERE color IS NOT NULL AND color <> INITCAP(color);
+
+------------------------------interior column
+
+SELECT 
+	DISTINCT interior as distinct_interior 
+FROM car_sales
+ORDER BY interior;
+
+SELECT 
+	COUNT(*) 
+FROM car_sales
+WHERE interior = '—';
+
+UPDATE car_sales
+SET interior = NULL
+WHERE interior = '—';
+
+UPDATE car_sales
+SET interior = INITCAP(interior)
+WHERE interior IS NOT NULL AND interior <> INITCAP(interior);
+
+------------------------------seller column
+
+SELECT
+	COUNT(DISTINCT seller)
+FROM car_sales;
+
+SELECT
+	seller
+FROM car_sales
+GROUP BY seller
+LIMIT 20;
+
+------------------------------mmr column
+
+SELECT
+	MAX (mmr)
+	,MIN (mmr)
+	,AVG (mmr)
+FROM car_sales;
+
+SELECT
+	mmr
+FROM car_sales
+WHERE mmr IS NOT NULL
+ORDER BY mmr DESC
+LIMIT 10;
+
+SELECT
+	mmr
+FROM car_sales
+WHERE mmr IS NOT NULL
+ORDER BY mmr
+LIMIT 10;
+
+SELECT
+	mmr
+FROM car_sales
+WHERE mmr IS NOT NULL AND mmr <> 25
+ORDER BY mmr
+LIMIT 10;
+
+------------------------------selling_price column
+
+SELECT
+	MAX (selling_price)
+	,MIN (selling_price)
+	,AVG (selling_price)
+FROM car_sales;
+
+------------------------------vin column
+
+SELECT
+	COUNT(DISTINCT vin)
+FROM car_sales;
+
+SELECT 	
+	vin
+	,COUNT(*) AS count
+FROM car_sales
+GROUP BY vin
+HAVING COUNT(*) > 1
+ORDER BY count DESC;
+
+SELECT
+	*
+FROM car_sales
+WHERE vin = 'wbanv13588cz57827';
+
+SELECT
+	*
+FROM car_sales
+WHERE vin = '5uxfe43579l274932';
+
+SELECT
+	maker
+	,model
+	,vin
+FROM car_sales
+WHERE maker IS NULL AND model IS NULL
+ORDER BY vin;
+
+UPDATE car_sales
+SET maker = 'Hummer'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '137%' OR
+    vin ILIKE '5gr%'
+  );
+
+UPDATE car_sales
+SET maker = 'Dodge'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '1b3%' OR
+    vin ILIKE '1b4%' OR
+    vin ILIKE '1b7%' OR
+	  vin ILIKE '1d3%' OR
+    vin ILIKE '1d4%' OR
+    vin ILIKE '1d8%' OR
+	  vin ILIKE 'wd2%' OR
+	  vin ILIKE 'wdy%' OR
+	  vin ILIKE '2b3%' OR
+    vin ILIKE '2b4%' OR
+	  vin ILIKE '2b6%' OR
+	  vin ILIKE '2d4%' OR
+    vin ILIKE '2d6%' OR
+	  vin ILIKE '2d8%' OR
+	  vin ILIKE '3b7%' OR
+	  vin ILIKE '3d3%' OR
+	  vin ILIKE '3d6%' OR
+	  vin ILIKE '3d7%' OR
+	  vin ILIKE '4b3%'
+  );
+
+UPDATE car_sales
+SET maker = 'Chrysler'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '1c3%' OR
+	  vin ILIKE '2a4%' OR
+    vin ILIKE '2a8%' OR
+	  vin ILIKE '2c3%' OR
+    vin ILIKE '2c4%' OR
+	  vin ILIKE '2c8%' OR
+	  vin ILIKE '3c4%' OR
+	  vin ILIKE '3c3%' OR
+    vin ILIKE '1c4%'
+  );
+
+UPDATE car_sales
+SET maker = 'Ford'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '1fa%' OR
+    vin ILIKE '1fb%' OR
+    vin ILIKE '1fd%' OR
+	  vin ILIKE '1fm%' OR
+	  vin ILIKE '1ft%' OR
+	  vin ILIKE '2fa%' OR
+	  vin ILIKE '2fd%' OR
+	  vin ILIKE '2fm%' OR
+	  vin ILIKE '2ft%' OR
+	  vin ILIKE '3fa%' OR
+	  vin ILIKE '3ft%'
+  );
+
+UPDATE car_sales
+SET maker = 'GMC'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '1g1%' OR
+	  vin ILIKE '1gd%' OR
+    vin ILIKE '1gh%' OR
+    vin ILIKE '1gk%' OR
+	  vin ILIKE '1gt%' OR
+	  vin ILIKE '2gt%' OR
+	  vin ILIKE '3gt%' OR
+    vin ILIKE '3gk%'
+  );
+
+UPDATE car_sales
+SET maker = 'Pontiac'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '1g2%' OR
+    vin ILIKE '3g2%' OR
+	  vin ILIKE '4g2%' OR
+	  vin ILIKE '1gm%' OR
+    vin ILIKE '5y2%' OR
+	  vin ILIKE 'kl2%'
+  );
+
+UPDATE car_sales
+SET maker = 'Oldsmobile'
+WHERE vin LIKE '1g3%' AND maker IS NULL;
+
+UPDATE car_sales
+SET maker = 'Buick'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '1g4%' OR
+    vin ILIKE '2g4%' OR
+	  vin ILIKE '5ga%'
+  );
+
+UPDATE car_sales
+SET maker = 'Cadillac'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '1g6%' OR
+	  vin ILIKE '1ge%' OR
+	  vin ILIKE '1gy%' OR
+    vin ILIKE '3gy%'
+  );
+
+UPDATE car_sales
+SET maker = 'Volkswagen'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '3vw%' OR
+	  vin ILIKE '9bw%' OR
+	  vin ILIKE 'wv2%' OR
+	  vin ILIKE 'wvg%' OR
+	  vin ILIKE 'wvw%' 
+  );
+
+UPDATE car_sales
+SET maker = 'Chevrolet'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '1ga%' OR
+    vin ILIKE '1g8%' OR
+    vin ILIKE '1gb%' OR
+	  vin ILIKE '1gc%' OR
+	  vin ILIKE '1gn%' OR
+	  vin ILIKE '1y1%' OR
+	  vin ILIKE '2cn%' OR
+	  vin ILIKE '2g1%' OR
+	  vin ILIKE '2gc%' OR
+	  vin ILIKE '3g1%' OR
+	  vin ILIKE '3gc%' OR
+	  vin ILIKE '3gn%' OR
+	  vin ILIKE '4g1%' OR
+	  vin ILIKE 'kl1%'
+  );
+
+UPDATE car_sales
+SET maker = 'Honda'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '1hg%' OR
+    vin ILIKE '2hg%' OR
+	  vin ILIKE '2hj%' OR
+	  vin ILIKE '2hk%' OR
+	  vin ILIKE '5fn%' OR
+	  vin ILIKE 'jhl%' OR
+	  vin ILIKE 'jhm%' OR
+	  vin ILIKE 'shs%'
+  );
+
+UPDATE car_sales
+SET maker = 'Jeep'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '1j4%' OR
+    vin ILIKE '1jc%' OR
+	  vin ILIKE '2j4%'
+  );
+
+UPDATE car_sales
+SET maker = 'Lincoln'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '1l1%' OR
+    vin ILIKE '1ln%' OR
+	  vin ILIKE '2lm%'
+  );
+
+UPDATE car_sales
+SET maker = 'Mercury'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '1me%' OR
+    vin ILIKE '2me%' OR
+	  vin ILIKE '2mh%' OR
+	  vin ILIKE '4m2%'
+  );
+
+UPDATE car_sales
+SET maker = 'Nissan'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '1n6%' OR
+    vin ILIKE '4n2%' OR
+	  vin ILIKE 'jn1%' OR
+	  vin ILIKE 'jn8%'
+  );
+
+UPDATE car_sales
+SET maker = 'Plymouth'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '1p3%' OR
+    vin ILIKE '1p4%' OR
+	  vin ILIKE '2p4%'
+  );
+
+UPDATE car_sales
+SET maker = 'Mazda'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '1yv%' OR
+    vin ILIKE '4f2%' OR
+	  vin ILIKE '4f4%' OR
+	  vin ILIKE 'jm1%' OR
+	  vin ILIKE 'jm3%'
+  );
+
+UPDATE car_sales
+SET maker = 'General Motors'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '3gs%' OR
+    vin ILIKE '4gl%'
+  );
+
+UPDATE car_sales
+SET maker = 'Acura'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '2hh%' OR
+    vin ILIKE 'jh4%' 
+  );
+
+UPDATE car_sales
+SET maker = 'Toyota'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '2t1%' OR
+    vin ILIKE '4t1%' OR
+	  vin ILIKE '4t3%' OR
+	  vin ILIKE '4ta%' OR
+	  vin ILIKE '5tb%' OR
+	  vin ILIKE '5td%' OR
+	  vin ILIKE '5tf%' OR
+	  vin ILIKE '5yf%' OR
+  	vin ILIKE 'jt2%' OR
+	  vin ILIKE 'jt3%' OR
+  	vin ILIKE 'jt4%' OR
+  	vin ILIKE 'jtd%' OR
+  	vin ILIKE 'jte%' OR
+  	vin ILIKE 'jtm%'
+  );
+
+UPDATE car_sales
+SET maker = 'Lexus'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '2t2%' OR
+    vin ILIKE 'jth%' OR
+  	vin ILIKE 'jtj%'
+  );
+
+UPDATE car_sales
+SET maker = 'Mitsubishi'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '4a3%' OR
+    vin ILIKE '4a4%' OR
+  	vin ILIKE 'ja3%' OR
+  	vin ILIKE 'ja4%'
+  );
+
+UPDATE car_sales
+SET maker = 'Subaru'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '4s3%' OR
+    vin ILIKE 'jf1%' 
+  );
+
+UPDATE car_sales
+SET maker = 'Saturn'
+WHERE vin LIKE '5gz%' AND maker IS NULL;
+
+UPDATE car_sales
+SET maker = 'Hyundai'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE '5nm%' OR
+	  vin ILIKE 'km8%' OR
+  	vin ILIKE 'kmh%'
+	);
+
+UPDATE car_sales
+SET maker = 'Suzuki'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE 'js2%' OR
+  	vin ILIKE 'js3%' OR
+	  vin ILIKE 'kl5%'
+  );
+
+UPDATE car_sales
+SET maker = 'Kia'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE 'kna%' OR
+  	vin ILIKE 'knd%'
+	);
+
+UPDATE car_sales
+SET maker = 'Jaguar'
+WHERE vin LIKE 'saj%' AND maker IS NULL;
+
+UPDATE car_sales
+SET maker = 'Land Rover'
+WHERE vin LIKE 'sal%' AND maker IS NULL;
+
+UPDATE car_sales
+SET maker = 'Audi'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE 'tru%' OR
+  	vin ILIKE 'wa1%' OR
+  	vin ILIKE 'wau%'
+  );
+
+UPDATE car_sales
+SET maker = 'BMW'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE 'wba%' OR
+  	vin ILIKE 'wbs%' OR
+  	vin ILIKE 'wbx%'
+  );
+
+UPDATE car_sales
+SET maker = 'Mercedes-Benz'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE 'wdb%' OR
+  	vin ILIKE 'wdc%' OR
+  	vin ILIKE 'wdd%' OR
+  	vin ILIKE 'wme%'
+  );
+
+UPDATE car_sales
+SET maker = 'Porsche'
+WHERE maker IS NULL
+  AND (
+    vin ILIKE 'wp0%' OR
+  	vin ILIKE 'wp1%' 
+  );
+
+UPDATE car_sales
+SET maker = 'Saab'
+WHERE vin LIKE 'ys3%' AND maker IS NULL;
+
+UPDATE car_sales
+SET maker = 'Maserati'
+WHERE vin LIKE 'zam%' AND maker IS NULL;
+
+UPDATE car_sales
+SET maker = 'Ferrari'
+WHERE vin LIKE 'zff%' AND maker IS NULL;
+
+------------------------------additional
+
+ALTER TABLE car_sales
+ADD COLUMN maker_region TEXT;
+
+UPDATE car_sales
+SET maker_region = CASE UPPER(LEFT(vin, 1))
+    WHEN '1' THEN 'USA'
+    WHEN '4' THEN 'USA'
+    WHEN '5' THEN 'USA'
+    WHEN '2' THEN 'Canada'
+    WHEN '3' THEN 'Mexico'
+    WHEN '6' THEN 'Australia'
+    WHEN '9' THEN 'Brazil'
+    WHEN 'J' THEN 'Japan'
+    WHEN 'K' THEN 'South Korea'
+    WHEN 'L' THEN 'China'
+    WHEN 'M' THEN 'India'
+    WHEN 'N' THEN 'Turkey'
+    WHEN 'S' THEN 'UK'
+    WHEN 'T' THEN 'Hungary/Switzerland'
+    WHEN 'V' THEN 'France/Spain'
+    WHEN 'W' THEN 'Germany'
+    WHEN 'X' THEN 'Russia'
+    WHEN 'Y' THEN 'Sweden/Finland'
+    WHEN 'Z' THEN 'Italy'
+    ELSE 'Unknown'
+END;
+
+SELECT
+	maker_region
+	,COUNT (*)
+FROM car_sales
+GROUP BY maker_region;
+
+SELECT 
+	vin
+	,model
+	,maker
+	,"condition"
+	,odometer_miles
+	,selling_price
+	,COUNT(*) AS duplicates
+FROM car_sales
+GROUP BY vin, model, maker, "condition", odometer_miles, selling_price
+HAVING COUNT(*) > 1
+ORDER BY duplicates DESC;
+
+SELECT 
+	sale_date
+FROM car_sales
+WHERE sale_date IS NULL
+
+ALTER TABLE car_sales
+ALTER COLUMN sale_date TYPE DATE
+USING to_date(sale_date, 'MM/DD/YYYY');
+
+ALTER TABLE car_sales
+ADD COLUMN sale_year TEXT,
+ADD COLUMN sale_month TEXT;
+
+UPDATE car_sales
+SET 
+  sale_year = TO_CHAR(sale_date, 'YYYY'),
+  sale_month = TO_CHAR(sale_date, 'Mon');
+
+SELECT
+	DISTINCT sale_year
+FROM car_sales;
+
+SELECT
+	DISTINCT sale_month
+FROM car_sales;
+
+SELECT
+	sale_month
+	,COUNT(sale_month)
+FROM car_sales
+GROUP BY sale_month;
+
