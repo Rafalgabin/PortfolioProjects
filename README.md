@@ -52,13 +52,13 @@
 ![HR Employee Attrition Dashboard](visuals/HR%20Employee%20Attrition1.png)
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+https://github.com/Rafalgabin/PortfolioProjects/blob/main/Vehicle%20Sales%20Data
 
 - [x] **PostgreSQL, Python & Power Bi** -
 
   - Vehicle Sales in US Dataset Analysis Project <br />
   - Data Cleaning <br />
-    *Review the SQL Script*
+    *Review the SQL Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Vehicle%20Sales%20Data)**<br />
   - Data Exploration <br />
     *Review the Python Script*
      Work in progress
