@@ -54,6 +54,8 @@
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+- [x] **PostgreSQL, Python & Power Bi** -
+
   - Vehicle Sales in US Dataset Analysis Project <br />
   - Data Cleaning <br />
     *Review the SQL Script*
