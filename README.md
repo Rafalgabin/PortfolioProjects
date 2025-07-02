@@ -59,7 +59,7 @@
   - Data Cleaning <br />
     *Review the SQL Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Vehicle%20Sales%20Data)**<br />
   - Data Exploration <br />
-    *Review the Python Script*
+    *Review the Python Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Vehicle%20Sales%20Data%20Python.ipynb)**<br />
      Work in progress
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
