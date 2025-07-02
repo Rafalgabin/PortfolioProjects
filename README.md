@@ -52,7 +52,6 @@
 ![HR Employee Attrition Dashboard](visuals/HR%20Employee%20Attrition1.png)
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-https://github.com/Rafalgabin/PortfolioProjects/blob/main/Vehicle%20Sales%20Data
 
 - [x] **PostgreSQL, Python & Power Bi** -
 
