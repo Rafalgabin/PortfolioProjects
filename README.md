@@ -33,6 +33,7 @@
   - Supermarket Sales Dataset Analysis Project <br />
   - Data Cleaning and Data Exploration <br />
     *Review the SQL Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Supermarket_Sales)**<br />
+    *Additional information regarding dataset and conclusions:* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Supermarket%20Sales%20Data%20readme)**<br />
 
 
 ![Supermarket Sales Dashboard](visuals/Supermarket%20sales1.png)
