@@ -7,6 +7,57 @@
 
 
 
+- [x] **PostgreSQL, Python & Power Bi** -
+
+  - Vehicle Sales in US Dataset Analysis Project <br />
+  - Data Cleaning <br />
+    *Review the SQL Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Vehicle%20Sales%20Data)**<br />
+  - Data Exploration <br />
+    *Review the Python Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Vehicle%20Sales%20Data%20Python.ipynb)**<br />
+
+
+![Vehicle Sales Dashboard](visuals/Vehicle%20Sale1.jpg)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+- [x] **SQL, Python & Power Bi** -
+
+  - HR Employee Attrition Dataset Analysis Project <br />
+  - Data Cleaning <br />
+    *Review the SQL Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/HR%20Employee%20Attrition)**<br />
+  - Data Exploration <br />
+    *Review the Python Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/HR%20Employee%20Attrition%20Python.ipynb)**<br />
+
+
+![HR Employee Attrition Dashboard](visuals/HR%20Employee%20Attrition1.png)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+- [x] **SQL & Power Bi** -
+  - Supermarket Sales Dataset Analysis Project <br />
+  - Data Cleaning and Data Exploration <br />
+    *Review the SQL Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Supermarket_Sales)**<br />
+    *Additional information regarding dataset and conclusions:* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Supermarket%20Sales%20Data%20readme)**<br />
+
+
+![Supermarket Sales Dashboard](visuals/Supermarket%20sales1.png)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+- [x] **Excel** -   
+  *Kindly download these Excel files from this repository and view them in Microsoft Excel.*
+
+  - Global AI Job Market 2024-2025 Dashboard <br />
+
+
+![Global AI Job Market 2024-2025 Dashboard](visuals/excel/Global_AI_Job_Market_Dashboard.png)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 - [x] **SQL & Power Bi** -
   - Netflix Data Analysis Project<br />
   - Data Cleaning and Data Exploration<br />
@@ -30,56 +81,7 @@
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-  - Supermarket Sales Dataset Analysis Project <br />
-  - Data Cleaning and Data Exploration <br />
-    *Review the SQL Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Supermarket_Sales)**<br />
-    *Additional information regarding dataset and conclusions:* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Supermarket%20Sales%20Data%20readme)**<br />
-
-
-![Supermarket Sales Dashboard](visuals/Supermarket%20sales1.png)
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-- [x] **SQL, Python & Power Bi** -
-
-  - HR Employee Attrition Dataset Analysis Project <br />
-  - Data Cleaning <br />
-    *Review the SQL Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/HR%20Employee%20Attrition)**<br />
-  - Data Exploration <br />
-    *Review the Python Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/HR%20Employee%20Attrition%20Python.ipynb)**<br />
-
-
-![HR Employee Attrition Dashboard](visuals/HR%20Employee%20Attrition1.png)
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-- [x] **PostgreSQL, Python & Power Bi** -
-
-  - Vehicle Sales in US Dataset Analysis Project <br />
-  - Data Cleaning <br />
-    *Review the SQL Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Vehicle%20Sales%20Data)**<br />
-  - Data Exploration <br />
-    *Review the Python Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/Vehicle%20Sales%20Data%20Python.ipynb)**<br />
-
-
-![Vehicle Sales Dashboard](visuals/Vehicle%20Sale1.jpg)
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-- [x] **Excel** -   
-  *Kindly download these Excel files from this repository and view them in Microsoft Excel.*
-
-  - Global AI Job Market 2024-2025 Dashboard <br />
-
-
-![Global AI Job Market 2024-2025 Dashboard](visuals/excel/Global_AI_Job_Market_Dashboard.png)
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-- Norway Healthcare Data Dashboard <br />
+- Norway Healthcare 2018-2023 Data Dashboard <br />
 [Work in progress]
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
