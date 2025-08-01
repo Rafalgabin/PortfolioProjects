@@ -7,10 +7,12 @@
 
 
 
-- [x] **Excel, Power Bi** -   
+- [x] **Excel, Power Bi** -
+
+  - Data Cleaning & Data Exploration <br />
   *Kindly download Excel file from this repository and view it in Microsoft Excel.*
 
-- Norway Healthcare 2018-2023 Data <br />
+  - Norway Healthcare 2018-2023 Data <br />
 [Work in progress]
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
