@@ -8,7 +8,7 @@
 
 
 - [x] **Excel, Power Bi** -   
-  *Kindly download these Excel files from this repository and view them in Microsoft Excel.*
+  *Kindly download Excel file from this repository and view it in Microsoft Excel.*
 
 - Norway Healthcare 2018-2023 Data <br />
 [Work in progress]
