@@ -7,6 +7,15 @@
 
 
 
+- [x] **Excel, Power Bi** -   
+  *Kindly download these Excel files from this repository and view them in Microsoft Excel.*
+
+- Norway Healthcare 2018-2023 Data <br />
+[Work in progress]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 - [x] **PostgreSQL, Python & Power Bi** -
 
   - Vehicle Sales in US Dataset Analysis Project <br />
