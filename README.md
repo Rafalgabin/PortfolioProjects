@@ -11,9 +11,8 @@
 
   - Data Cleaning & Data Exploration <br />
   *Kindly download Excel file from this repository and view it in Microsoft Excel.*
-
-  - Norway Healthcare 2018-2023 Data <br />
-[Work in progress]
+  
+![Norway Healthcare 2018-2023 Dashboard](visuals/Norway%20healthcare%201.png)
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
