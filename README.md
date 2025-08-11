@@ -38,7 +38,7 @@
     *Review the SQL Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/HR%20Employee%20Attrition)**<br />
   - Data Exploration <br />
     *Review the Python Script* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/HR%20Employee%20Attrition%20Python.ipynb)**<br />
-
+    *Additional information regarding dataset and conclusions:* **[HERE](https://github.com/Rafalgabin/PortfolioProjects/blob/main/HR%20Employee%20Attrition%20Data%20readme)**<br />
 
 ![HR Employee Attrition Dashboard](visuals/HR%20Employee%20Attrition1.png)
 
