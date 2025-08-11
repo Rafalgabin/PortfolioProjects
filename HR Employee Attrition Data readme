@@ -1,0 +1,77 @@
+- This dataset is based on Human Resources (HR) data from a company (IBM), focused on understanding why employees leave their jobs, also called employee Attrition.
+- The dataset helps you predict whether an employee will leave the company (Attrition = Yes) or stay (Attrition = No) based on their job satisfaction, salary, work-life balance, overtime, and other factors.
+
+Total Employees: 1,470.
+Gender Breakdown: 60% Female (882) vs 40% Male (588).
+Department Distribution: R&D dominates at 65.37%, Sales: 30.34%, HR: Very small portion at 4.29%.
+Marital Status:, Married: 31.97%, Single: 45.78% (the largest group), Divorced: 22.24%. 
+Single employees may form a higher-risk group for attrition if not engaged properly.
+
+Work Behavior & Satisfaction.
+Average Job Involvement: 2.7 (on a 1–4 scale)
+Job Satisfaction: 2.7
+Work-Life Balance: 2.8
+Relationship Satisfaction: 2.7
+These are below ideal — hovering around average rather than high, which could signal low engagement or potential dissatisfaction.
+
+Experience & Tenure.
+Average Age: 36.9
+Total Working Years: 11.3
+Years at Company: 7
+Years in Current Role: 4.23
+Job Level: 2.1
+Workforce is mid-career and stable, but there may be limited upward movement, as shown by: Low average job level (2.1), Long duration in current roles (4.23 years).
+Compensation & Benefits: Average Salary Hike %: 15.2%, Average Salary Hike Amount: 849.3$, Stock Option Level: 0.8 (low).
+Stock options are rarely used as an incentive, and salary hike might not be keeping up with expectations.
+
+Work Conditions.
+Overtime: 71.7% of employees work overtime.
+Travel Frequency: 70.95% don’t travel, 18.84% travel frequently, 10.2% travel rarely.
+Overtime burden is very high, which could be contributing to burnout. Majority are not traveling for work, which could affect exposure and growth opportunities in some roles.
+
+Age Distribution.
+The 30s age group is the largest, with 533 employees (314 females, 219 males).
+20s and 40s follow in volume. Very few employees are aged 50+ or under 20.
+The workforce is mid-career dominated, indicating potential upcoming demands for career growth or leadership roles.
+
+Distance from Home. 
+A significant concentration of employees live <10 km from work. Females are more likely to live closer to the office than males.
+Long commute might be a male-specific stressor, and this factor could influence attrition or job satisfaction.
+
+Education Level. 
+Majority of employees hold a Bachelor’s degree (473, ~38%), Followed by Master’s (27.6%) and College (19.3%), Very few have Doctorates or below-college education
+The workforce is well-educated, likely expecting professional growth and skill development opportunities.
+
+Education Field by Gender.
+Life Sciences and Medical fields dominate: 
+Life Sciences: 315 females, 202 males
+Medical: 230 males, 171 females
+Technical degrees and HR fields are significantly lower in volume.
+The company is heavily invested in science-based roles, possibly R&D or healthcare.
+
+Training Last Year. 
+Most employees received 2 or 3 training sessions last year. Training is fairly balanced across genders. Training appears consistent, but further analysis is needed to see if those with fewer training sessions have higher attrition.
+
+Department & Job Role by Gender.
+Sales Executives is the largest role (148 females, 157 males) — very balanced. Research Scientists is the second largest (148 males, 97 females) Lab Technicians and Healthcare Reps also form a big share.
+Leadership roles (like Managers and Directors) have low representation, especially for females. Women are well represented in operational roles, but less so in leadership, especially in: Research Director, Manufacturing Director, Sales Manager.
+
+Potential Attrition Indicators 
+Gender imbalance in senior roles may limit retention for female high-performers.
+Employees with longer commutes (especially men) might face burnout.
+Training and career development need alignment with expectations — most employees are educated and mid-career.
+
+Overall Attrition Rate: About 16% of employees have left the company — a non-negligible churn rate worth digging into.
+Slightly more females left than males, but not drastically different.
+Sales Representatives and Laboratory Technicians have the highest attrition rates. Research Directors and Manufacturing Directors have lower attrition. Sales has a higher attrition rate compared to R&D and HR.
+Employees who work overtime have a much higher attrition rate. This could be a red flag on work-life balance or burnout. 
+Single employees are more likely to leave compared to married or divorced employees.
+
+Additional Insights About Attrition
+Employees who left earned less on average than those who stayed. Salary might be a major driver of attrition.
+Leavers were, on average, younger. Younger employees may have fewer commitments and be more willing to explore other opportunities or switch jobs frequently.
+Leavers have fewer years of overall experience. Less experienced employees might not be as deeply invested in the company or may be exploring their options.
+Leavers had spent fewer years at the company. Employees are most at risk of leaving within their first few years — onboarding and early engagement are key.
+On average, they lived further from work. Commute length might be a subtle but real factor contributing to turnover.
+Leavers were in lower job levels on average. Employees in junior roles may feel less valued or see fewer growth opportunities.
+Less time in their current role or with their manager. Frequent changes in management or lack of strong leadership connections may contribute to attrition.
